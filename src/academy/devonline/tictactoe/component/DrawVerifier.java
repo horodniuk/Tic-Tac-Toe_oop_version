@@ -14,19 +14,17 @@
  * limitations under the License.
  */
 
-package academy.devonline.tictactoe;
+package academy.devonline.tictactoe.component;
+
+import academy.devonline.tictactoe.model.GameTable;
 
 /**
  * @author devonline
  * @link http://devonline.academy/java
  * tic-tac-toe
  */
-public class WinnerVerifier {
-    public boolean isComputerWin(final GameTable gameTable) {
-        return false;
-    }
-
-    public boolean isUserWin(final GameTable gameTable) {
+public class DrawVerifier {
+    public boolean isDraw(final GameTable gameTable) {
         return false;
     }
 }
