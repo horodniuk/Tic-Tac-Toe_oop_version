@@ -16,6 +16,7 @@
 
 package academy.devonline.tictactoe.component;
 
+import academy.devonline.tictactoe.model.Cell;
 import academy.devonline.tictactoe.model.GameTable;
 
 import java.util.Scanner;
@@ -33,9 +34,9 @@ public class UserMove {
             if (string.length() == 1) {
                 char digit = string.charAt(0);
                 if (digit >= '0' && digit <= '9') {
-                   if (makeUserMoveToCell(gameTable, digit)){
-                       return;
-                   }
+                    if (makeUserMoveToCell(gameTable, digit)) {
+                        return;
+                    }
                 }
             }
         }
@@ -43,7 +44,22 @@ public class UserMove {
 
     private boolean makeUserMoveToCell(final GameTable gameTable, final char digit) {
         MappingTable mappingTable = new MappingTable();
+        int mappingTableLength = mappingTable.getKeyboardLayoutMappingTable().length;
 
-       return false;
+        for (int i = 0; i < mappingTableLength; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (mappingTable.getKeyboardLayoutMappingTable()[i][j] == digit) {
+                    Cell cell = new Cell(i, j);
+                    if (gameTable.isEmpty(cell)) {
+                        gameTable.setSign(cell, 'X');
+                        return true;
+                    } else {
+                        System.out.println("Can't make a move, because the cell is not free! Try again!");
+                        return false;
+                    }
+                }
+            }
+        }
+        return false;
     }
 }
