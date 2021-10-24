@@ -16,7 +16,10 @@
 
 package academy.devonline.tictactoe.component;
 
+import academy.devonline.tictactoe.model.Cell;
 import academy.devonline.tictactoe.model.GameTable;
+
+import java.util.Scanner;
 
 /**
  * @author devonline
@@ -25,5 +28,22 @@ import academy.devonline.tictactoe.model.GameTable;
  */
 public class UserMove {
     public void make(final GameTable gameTable) {
+        while (true) {
+            System.out.println("Please type number between 1 and 9:");
+            String string = new Scanner(System.in).nextLine();
+            if (string.length() == 1) {
+                char digit = string.charAt(0);
+                if (digit >= '0' && digit <= '9') {
+                   if (makeUserMoveToCell(gameTable, digit)){
+                       return;
+                   }
+                }
+            }
+        }
+    }
+
+    private boolean makeUserMoveToCell(final GameTable gameTable, final char digit) {
+
+       return false;
     }
 }
