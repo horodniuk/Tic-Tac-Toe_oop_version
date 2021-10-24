@@ -26,12 +26,8 @@ import academy.devonline.tictactoe.model.GameTable;
  */
 public class DataPrinter {
     public void printMappingTable() {
-        char[][] mappingTable = {
-                {'7', '8', '9'},
-                {'4', '5', '6'},
-                {'1', '2', '3'}
-        };
-        printGameTable(mappingTable);
+        MappingTable mappingTable = new MappingTable();
+        printGameTable(mappingTable.getKeyboardLayoutMappingTable());
     }
 
     public void printGameTable( GameTable gameTable) {

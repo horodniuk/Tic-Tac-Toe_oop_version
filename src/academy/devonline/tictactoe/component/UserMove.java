@@ -16,7 +16,6 @@
 
 package academy.devonline.tictactoe.component;
 
-import academy.devonline.tictactoe.model.Cell;
 import academy.devonline.tictactoe.model.GameTable;
 
 import java.util.Scanner;
@@ -43,6 +42,7 @@ public class UserMove {
     }
 
     private boolean makeUserMoveToCell(final GameTable gameTable, final char digit) {
+        MappingTable mappingTable = new MappingTable();
 
        return false;
     }
