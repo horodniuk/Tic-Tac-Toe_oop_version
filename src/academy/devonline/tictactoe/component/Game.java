@@ -34,22 +34,22 @@ public class Game {
 
     private final WinnerVerifier winnerVerifier;
 
-    private final DrawVerifier drawVerifier;
+    private final CellVerifier cellVerifier;
 
     public Game(final DataPrinter dataPrinter,
                 final ComputerMove computerMove,
                 final UserMove userMove,
                 final WinnerVerifier winnerVerifier,
-                final DrawVerifier drawVerifier) {
+                final CellVerifier cellVerifier) {
         this.dataPrinter = dataPrinter;
         this.computerMove = computerMove;
         this.userMove = userMove;
         this.winnerVerifier = winnerVerifier;
-        this.drawVerifier = drawVerifier;
+        this.cellVerifier = cellVerifier;
     }
 
     public void play() {
-        System.out.println(" Use the following mapping table to specify a cell using numbers from 1 to 9 :");
+        System.out.println("Use the following mapping table to specify a cell using numbers from 1 to 9:");
         dataPrinter.printMappingTable();
         final GameTable gameTable = new GameTable();
         if (new Random().nextBoolean()) {
@@ -63,7 +63,7 @@ public class Game {
                 System.out.println("YOU WIN!");
                 break;
             }
-            if (drawVerifier.isDraw(gameTable)) {
+            if (cellVerifier.allCellsFilled(gameTable)) {
                 System.out.println("Sorry, DRAW!");
                 break;
             }
@@ -73,7 +73,7 @@ public class Game {
                 System.out.println("COMPUTER WIN!");
                 break;
             }
-            if (drawVerifier.isDraw(gameTable)) {
+            if (cellVerifier.allCellsFilled(gameTable)) {
                 System.out.println("Sorry, DRAW!");
                 break;
             }
