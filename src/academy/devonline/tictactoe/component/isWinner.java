@@ -19,24 +19,10 @@ package academy.devonline.tictactoe.component;
 import academy.devonline.tictactoe.model.GameTable;
 
 /**
- * @author devonline
+ * @author Maksym Horodniuk
  * @link http://devonline.academy/java
  * tic-tac-toe
  */
-public class WinnerVerifier {
-    public boolean isComputerWin(final GameTable gameTable) {
-        return isWin(gameTable, '0');
-    }
-
-    public boolean isUserWin(final GameTable gameTable) {
-        return isWin(gameTable, 'X');
-    }
-
-    private boolean isWin(final GameTable gameTable, final char sing) {
-        return new isWinnerByCols().isWinner(gameTable, sing) ||
-                new isWinnerByRows().isWinner(gameTable, sing) ||
-                new isWinnerByDiagonal().isWinner(gameTable, sing) ||
-                new isWinnerByDiagonal2().isWinner(gameTable, sing);
-    }
-
+public interface isWinner {
+    boolean isWinner(final GameTable gameTable, final char sign);
 }

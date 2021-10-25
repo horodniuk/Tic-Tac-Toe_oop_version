@@ -42,13 +42,17 @@ public class ComputerMove {
                 if (!isMakeMove) {
                     //try move nearest
                     isMakeMove = tryToMakeMove('0', 'x', gameTable, 1, 2);
+                    if (!isMakeMove) {
+                        //try move nearest
+                        makeMoveRandom(gameTable);
+                    }
                 }
+
             }
             ;
 
-        } else makeMoveRandom(gameTable);
+        }
     }
-
 
 
     private boolean tryToMakeMove(final char searchSymbol,
