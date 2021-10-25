@@ -51,7 +51,7 @@ public class UserMove {
                 if (mappingTable.getKeyboardLayoutMappingTable()[i][j] == digit) {
                     Cell cell = new Cell(i, j);
                     if (gameTable.isEmpty(cell)) {
-                        gameTable.setSign(cell, 'X');
+                        gameTable.setSign(cell, 'x');
                         return true;
                     } else {
                         System.out.println("Can't make a move, because the cell is not free! Try again!");
