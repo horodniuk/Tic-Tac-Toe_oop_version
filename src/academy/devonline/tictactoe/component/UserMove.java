@@ -29,7 +29,7 @@ import java.util.Scanner;
 public class UserMove {
     public void make(final GameTable gameTable) {
         while (true) {
-            System.out.println("Please type number between 1 and 9:");
+            new DataPrinter().printGameTableMessageUserMoveInstruction();
             String string = new Scanner(System.in).nextLine();
             if (string.length() == 1) {
                 char digit = string.charAt(0);
@@ -54,7 +54,7 @@ public class UserMove {
                         gameTable.setSign(cell, 'x');
                         return true;
                     } else {
-                        System.out.println("Can't make a move, because the cell is not free! Try again!");
+                        new DataPrinter().updateMoveCellIsNotFree();
                         return false;
                     }
                 }

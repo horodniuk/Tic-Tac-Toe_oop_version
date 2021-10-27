@@ -41,15 +41,45 @@ public class DataPrinter {
         System.out.println("----------");
     }
 
-    public void printGameTable( char[][] mappingTable) {
+    public void printGameTable(char[][] mappingTable) {
         for (int i = 0; i < 3; i++) {
             System.out.println("----------");
             for (int j = 0; j < 3; j++) {
-                System.out.print("|" + mappingTable[i][j]+ " ");
+                System.out.print("|" + mappingTable[i][j] + " ");
             }
             System.out.println("|");
         }
         System.out.println("----------");
     }
+
+
+    public void printGameTableMessageUserMoveInstructionMapping() {
+        System.out.println("Use the following mapping table to specify a cell using numbers from 1 to 9:");
+    }
+
+    public void printGameTableMessageUserMoveInstruction() {
+        System.out.println("Please type number between 1 and 9:");
+    }
+
+    public void updateMoveCellIsNotFree() {
+        System.out.println("Can't make a move, because the cell is not free! Try again!");
+    }
+
+    public void printGameTableMessageUserWin() {
+        System.out.println("YOU WIN!");
+    }
+
+    public void printGameTableMessageComputerWin() {
+        System.out.println("COMPUTER WIN!");
+    }
+
+    public void printGameTableMessageGameDraw() {
+        System.out.println("Sorry, DRAW!");
+    }
+
+    public void printGameTableMessageGameOver() {
+        System.out.println("GAME OVER!");
+    }
+
 
 }
