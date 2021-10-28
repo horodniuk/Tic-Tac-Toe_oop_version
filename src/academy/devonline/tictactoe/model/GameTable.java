@@ -24,11 +24,19 @@ import java.util.Arrays;
  * tic-tac-toe
  */
 public class GameTable {
-    private final char[][] table = {
-            {' ', ' ', ' '},
-            {' ', ' ', ' '},
-            {' ', ' ', ' '}
-    };
+    private final char[][] table;
+
+    protected GameTable(final char[][] table) {
+        this.table = table;
+    }
+
+    public GameTable() {
+        table = new char[][]{
+                {' ', ' ', ' '},
+                {' ', ' ', ' '},
+                {' ', ' ', ' '}
+        };
+    }
 
     public boolean isEmpty(final Cell cell) {
         return table[cell.getRow()][cell.getCol()] == ' ';

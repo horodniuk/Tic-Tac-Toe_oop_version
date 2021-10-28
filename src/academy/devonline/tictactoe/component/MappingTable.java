@@ -16,19 +16,21 @@
 
 package academy.devonline.tictactoe.component;
 
+import academy.devonline.tictactoe.model.GameTable;
+
 /**
  * @author Maksym Horodniuk
  * @link http://devonline.academy/java
  * tic-tac-toe
  */
-public class MappingTable {
-    private final char[][] keyboardLayoutMappingTable = {
-            {'7', '8', '9'},
-            {'4', '5', '6'},
-            {'1', '2', '3'}
-    };
-
-    public char[][] getKeyboardLayoutMappingTable() {
-        return keyboardLayoutMappingTable;
+public class MappingTable extends GameTable {
+    public MappingTable() {
+        super(new char[][]{
+                {'7', '8', '9'},
+                {'4', '5', '6'},
+                {'1', '2', '3'}
+        });
     }
+
+
 }

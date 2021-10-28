@@ -30,6 +30,7 @@ public class CellVerifier {
             for (int j = 0; j < 3; j++) {
                 if (gameTable.isEmpty(new Cell(i, j))) {
                     return false;
+
                 }
             }
         }

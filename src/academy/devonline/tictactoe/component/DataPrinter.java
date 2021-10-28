@@ -27,25 +27,15 @@ import academy.devonline.tictactoe.model.GameTable;
 public class DataPrinter {
     public void printMappingTable() {
         MappingTable mappingTable = new MappingTable();
-        printGameTable(mappingTable.getKeyboardLayoutMappingTable());
+        printGameTable(new MappingTable());
     }
 
     public void printGameTable( GameTable gameTable) {
+
         for (int i = 0; i < 3; i++) {
             System.out.println("----------");
             for (int j = 0; j < 3; j++) {
                 System.out.print("|" + gameTable.getSign(new Cell(i, j))+ " ");
-            }
-            System.out.println("|");
-        }
-        System.out.println("----------");
-    }
-
-    public void printGameTable(char[][] mappingTable) {
-        for (int i = 0; i < 3; i++) {
-            System.out.println("----------");
-            for (int j = 0; j < 3; j++) {
-                System.out.print("|" + mappingTable[i][j] + " ");
             }
             System.out.println("|");
         }
