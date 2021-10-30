@@ -16,7 +16,8 @@
 
 package academy.devonline.tictactoe.component;
 
-import academy.devonline.tictactoe.component.convertToDigit.ConvertDigitToCell;
+import academy.devonline.tictactoe.component.convertDigit.ConvertDigitToCell;
+import academy.devonline.tictactoe.component.tablesMappingforUserMove.DesktopMappingTable;
 import academy.devonline.tictactoe.model.Cell;
 import academy.devonline.tictactoe.model.GameTable;
 
@@ -28,6 +29,7 @@ import java.util.Scanner;
  * tic-tac-toe
  */
 public class UserMove {
+    GameTable keybordTable = new DesktopMappingTable();
 
     public void make(final GameTable gameTable) {
         while (true) {
@@ -48,7 +50,7 @@ public class UserMove {
             if (userInput.length() == 1) {
                 final char digit = userInput.charAt(0);
                 if (digit >= '1' && digit <= '9') {
-                    return new ConvertDigitToCell().isConvertDigitToCell(digit);
+                    return new ConvertDigitToCell().convertDigitToCell(keybordTable, digit);
                 }
             }
         }

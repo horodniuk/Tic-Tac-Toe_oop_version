@@ -14,23 +14,27 @@
  * limitations under the License.
  */
 
-package academy.devonline.tictactoe.component;
+package academy.devonline.tictactoe.component.convertDigit;
 
+import academy.devonline.tictactoe.model.Cell;
 import academy.devonline.tictactoe.model.GameTable;
+
 
 /**
  * @author Maksym Horodniuk
  * @link http://devonline.academy/java
  * tic-tac-toe
  */
-public class MappingTable extends GameTable {
-    public MappingTable() {
-        super(new char[][]{
-                {'7', '8', '9'},
-                {'4', '5', '6'},
-                {'1', '2', '3'}
-        });
+public class ConvertDigitToCell implements ConvertDigit {
+    @Override
+    public Cell convertDigitToCell(GameTable currentMappingKeyboard, final char digit) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (currentMappingKeyboard.getSign(new Cell(i, j)) == digit) {
+                    return new Cell(i, j);
+                }
+            }
+        }
+        return null;
     }
-
-
 }

@@ -14,15 +14,23 @@
  * limitations under the License.
  */
 
-package academy.devonline.tictactoe.component.convertToDigit;
+package academy.devonline.tictactoe.component.tablesMappingforUserMove;
 
-import academy.devonline.tictactoe.model.Cell;
+import academy.devonline.tictactoe.model.GameTable;
 
 /**
  * @author Maksym Horodniuk
  * @link http://devonline.academy/java
  * tic-tac-toe
  */
-public interface ConvertDigit {
-    Cell isConvertDigitToCell(final char digit);
+public class DesktopMappingTable extends GameTable {
+    public DesktopMappingTable() {
+        super(new char[][]{
+                {'7', '8', '9'},
+                {'4', '5', '6'},
+                {'1', '2', '3'}
+        });
+    }
+
+
 }
