@@ -16,7 +16,6 @@
 
 package academy.devonline.tictactoe.component;
 
-import academy.devonline.tictactoe.component.tablesMappingforUserMove.DesktopMappingTable;
 import academy.devonline.tictactoe.model.GameTable;
 
 import java.util.Random;
@@ -51,8 +50,7 @@ public class Game {
 
     public void play() {
         dataPrinter.printGameTableMessageUserMoveInstructionMapping();
-        final DesktopMappingTable mappingTable = new DesktopMappingTable();
-        dataPrinter.printGameTable(mappingTable);
+        dataPrinter.printGameTable(userMove.exampleMappingTableForUserMove);
         final GameTable gameTable = new GameTable();
         if (new Random().nextBoolean()) {
             computerMove.makeComputerStrategy(gameTable);
@@ -66,7 +64,7 @@ public class Game {
                 break;
             }
             if (cellVerifier.allCellsFilled(gameTable)) {
-                System.out.println("Sorry, DRAW!");
+                dataPrinter.printGameTableMessageGameDraw();
                 break;
             }
             computerMove.makeComputerStrategy(gameTable);
