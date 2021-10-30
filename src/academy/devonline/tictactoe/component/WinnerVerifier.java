@@ -16,6 +16,10 @@
 
 package academy.devonline.tictactoe.component;
 
+import academy.devonline.tictactoe.component.vinner.Winner;
+import academy.devonline.tictactoe.component.vinner.WinnerByCols;
+import academy.devonline.tictactoe.component.vinner.WinnerByDiagonal;
+import academy.devonline.tictactoe.component.vinner.WinnerByRows;
 import academy.devonline.tictactoe.model.GameTable;
 
 /**
@@ -24,6 +28,15 @@ import academy.devonline.tictactoe.model.GameTable;
  * tic-tac-toe
  */
 public class WinnerVerifier {
+
+    Winner[] winners = {
+            new WinnerByCols(),
+            new WinnerByRows(),
+            new WinnerByDiagonal(),
+            new WinnerByDiagonal(),
+    };
+
+
     public boolean isComputerWin(final GameTable gameTable) {
         return isWin(gameTable, '0');
     }
@@ -33,10 +46,12 @@ public class WinnerVerifier {
     }
 
     private boolean isWin(final GameTable gameTable, final char sing) {
-        return new isWinnerByCols().isWinner(gameTable, sing) ||
-                new isWinnerByRows().isWinner(gameTable, sing) ||
-                new isWinnerByDiagonal().isWinner(gameTable, sing) ||
-                new isWinnerByDiagonal2().isWinner(gameTable, sing);
+        for (final Winner winner : winners) {
+            if (winner.isWinner(gameTable, sing)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

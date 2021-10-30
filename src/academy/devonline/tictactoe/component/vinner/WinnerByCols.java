@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package academy.devonline.tictactoe.component;
+package academy.devonline.tictactoe.component.vinner;
 
 import academy.devonline.tictactoe.model.Cell;
 import academy.devonline.tictactoe.model.GameTable;
@@ -24,13 +24,13 @@ import academy.devonline.tictactoe.model.GameTable;
  * @link http://devonline.academy/java
  * tic-tac-toe
  */
-public class isWinnerByRows implements isWinner {
+public class WinnerByCols implements Winner {
     @Override
     public boolean isWinner(final GameTable gameTable, final char sign) {
         for (int i = 0; i < 3; i++) {
-            if (gameTable.getSign(new Cell(i, 0)) == gameTable.getSign(new Cell(i, 1)) &&
-                    gameTable.getSign(new Cell(i, 1)) == gameTable.getSign(new Cell(i, 2)) &&
-                    gameTable.getSign(new Cell(i, 2)) == sign) {
+            if (gameTable.getSign(new Cell(0, i)) == gameTable.getSign(new Cell(1, i)) &&
+                    gameTable.getSign(new Cell(1, i)) == gameTable.getSign(new Cell(2, i)) &&
+                    gameTable.getSign(new Cell(2, i)) == sign) {
                 return true;
             }
         }
