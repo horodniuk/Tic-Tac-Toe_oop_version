@@ -50,7 +50,8 @@ public class Game {
 
     public void play() {
         dataPrinter.printGameTableMessageUserMoveInstructionMapping();
-        dataPrinter.printMappingTable();
+        final MappingTable mappingTable = new MappingTable();
+        dataPrinter.printGameTable(mappingTable);
         final GameTable gameTable = new GameTable();
         if (new Random().nextBoolean()) {
             computerMove.make(gameTable);

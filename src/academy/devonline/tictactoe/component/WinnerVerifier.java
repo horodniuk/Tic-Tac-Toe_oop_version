@@ -42,7 +42,7 @@ public class WinnerVerifier {
     }
 
     public boolean isUserWin(final GameTable gameTable) {
-        return isWin(gameTable, 'X');
+        return isWin(gameTable, 'x');
     }
 
     private boolean isWin(final GameTable gameTable, final char sing) {

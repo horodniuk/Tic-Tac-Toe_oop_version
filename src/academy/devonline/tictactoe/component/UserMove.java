@@ -16,6 +16,7 @@
 
 package academy.devonline.tictactoe.component;
 
+import academy.devonline.tictactoe.component.convertToDigit.ConvertDigitToCell;
 import academy.devonline.tictactoe.model.Cell;
 import academy.devonline.tictactoe.model.GameTable;
 
@@ -27,39 +28,31 @@ import java.util.Scanner;
  * tic-tac-toe
  */
 public class UserMove {
+
     public void make(final GameTable gameTable) {
         while (true) {
+            final Cell cell = tryGetUserCell();
+            if (gameTable.isEmpty(cell)) {
+                gameTable.setSign(cell, 'x');
+                return;
+            } else {
+                new DataPrinter().updateMoveCellIsNotFree();
+            }
+        }
+    }
+
+    private Cell tryGetUserCell() {
+        while (true) {
             new DataPrinter().printGameTableMessageUserMoveInstruction();
-            String string = new Scanner(System.in).nextLine();
-            if (string.length() == 1) {
-                char digit = string.charAt(0);
-                if (digit >= '0' && digit <= '9') {
-                    if (makeUserMoveToCell(gameTable, digit)) {
-                        return;
-                    }
+            final String userInput = new Scanner(System.in).nextLine();
+            if (userInput.length() == 1) {
+                final char digit = userInput.charAt(0);
+                if (digit >= '1' && digit <= '9') {
+                    return new ConvertDigitToCell().isConvertDigitToCell(digit);
                 }
             }
         }
     }
 
-    private boolean makeUserMoveToCell(final GameTable gameTable, final char digit) {
-        MappingTable mappingTable = new MappingTable();
-        int mappingTableLength = mappingTable.getKeyboardLayoutMappingTable().length;
 
-        for (int i = 0; i < mappingTableLength; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (mappingTable.getKeyboardLayoutMappingTable()[i][j] == digit) {
-                    Cell cell = new Cell(i, j);
-                    if (gameTable.isEmpty(cell)) {
-                        gameTable.setSign(cell, 'x');
-                        return true;
-                    } else {
-                        new DataPrinter().updateMoveCellIsNotFree();
-                        return false;
-                    }
-                }
-            }
-        }
-        return false;
-    }
 }

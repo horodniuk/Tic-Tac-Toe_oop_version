@@ -25,13 +25,7 @@ import academy.devonline.tictactoe.model.GameTable;
  * tic-tac-toe
  */
 public class DataPrinter {
-    public void printMappingTable() {
-        MappingTable mappingTable = new MappingTable();
-        printGameTable(new MappingTable());
-    }
-
     public void printGameTable( GameTable gameTable) {
-
         for (int i = 0; i < 3; i++) {
             System.out.println("----------");
             for (int j = 0; j < 3; j++) {
