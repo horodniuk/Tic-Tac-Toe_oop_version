@@ -14,33 +14,24 @@
  * limitations under the License.
  */
 
-package academy.devonline.tictactoe.component;
+package academy.devonline.tictactoe.component.computerMoveStrategy;
 
-
-import academy.devonline.tictactoe.component.computerMoveStrategy.*;
+import academy.devonline.tictactoe.model.Cell;
 import academy.devonline.tictactoe.model.GameTable;
 
 /**
- * @author devonline
+ * @author Maksym Horodniuk
  * @link http://devonline.academy/java
  * tic-tac-toe
  */
-public class ComputerMove {
-    ComputerMoveStrategy[] strategyComputerWin = {
-            new StrategyComputerTryWin(),
-            new StrategyComputerTryPreventUserWin(),
-            new StrategyComputerTryCenterMove(),
-            new StrategyComputerTryNearestMove(),
-            new StrategyComputerRandomMove(),
-    };
-
-    public boolean makeComputerStrategy(final GameTable gameTable) {
-        for (final ComputerMoveStrategy moveComputer : strategyComputerWin) {
-            if (moveComputer.tryToMakeMoveComputerWin(gameTable)) {
-                return true;
-            }
+public class StrategyComputerTryCenterMove implements ComputerMoveStrategy {
+    @Override
+    public boolean tryToMakeMoveComputerWin(final GameTable gameTable) {
+        Cell centerCell = new Cell(1, 1);
+        if (gameTable.isEmpty(centerCell)) {
+            gameTable.setSign(centerCell, '0');
+            return true;
         }
         return false;
     }
-
 }

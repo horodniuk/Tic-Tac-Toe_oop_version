@@ -54,7 +54,7 @@ public class Game {
         dataPrinter.printGameTable(mappingTable);
         final GameTable gameTable = new GameTable();
         if (new Random().nextBoolean()) {
-            computerMove.make(gameTable);
+            computerMove.makeComputerStrategy(gameTable);
             dataPrinter.printGameTable(gameTable);
         }
         while (true) {
@@ -68,7 +68,7 @@ public class Game {
                 System.out.println("Sorry, DRAW!");
                 break;
             }
-            computerMove.make(gameTable);
+            computerMove.makeComputerStrategy(gameTable);
             dataPrinter.printGameTable(gameTable);
             if (winnerVerifier.isComputerWin(gameTable)) {
                 dataPrinter.printGameTableMessageComputerWin();
