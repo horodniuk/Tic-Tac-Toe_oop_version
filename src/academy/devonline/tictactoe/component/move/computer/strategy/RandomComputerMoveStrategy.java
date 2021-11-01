@@ -14,22 +14,31 @@
  * limitations under the License.
  */
 
-package academy.devonline.tictactoe.component.vinner;
+package academy.devonline.tictactoe.component.move.computer.strategy;
 
 import academy.devonline.tictactoe.model.Cell;
 import academy.devonline.tictactoe.model.GameTable;
+
+import java.util.Random;
 
 /**
  * @author Maksym Horodniuk
  * @link http://devonline.academy/java
  * tic-tac-toe
  */
-public class WinnerByDiagonal implements Winner {
+public class RandomComputerMoveStrategy implements ComputerMoveStrategy {
 
     @Override
-    public boolean isWinner(final GameTable gameTable, final char sign) {
-        return gameTable.getSign(new Cell(0, 0)) == gameTable.getSign(new Cell(1, 1)) &&
-                gameTable.getSign(new Cell(1, 1)) == gameTable.getSign(new Cell(2, 2)) &&
-                gameTable.getSign(new Cell(2, 2)) == sign;
+    public boolean tryToMakeMove(final GameTable gameTable) {
+        final Random random = new Random();
+        while (true) {
+            final int row = random.nextInt(3);
+            final int col = random.nextInt(3);
+            final Cell randomCell = new Cell(row, col);
+            if (gameTable.isEmpty(randomCell)) {
+                gameTable.setSign(randomCell, '0');
+                return true;
+            }
+        }
     }
 }

@@ -16,10 +16,11 @@
 
 package academy.devonline.tictactoe.component;
 
-import academy.devonline.tictactoe.component.vinner.Winner;
-import academy.devonline.tictactoe.component.vinner.WinnerByCols;
-import academy.devonline.tictactoe.component.vinner.WinnerByDiagonal;
-import academy.devonline.tictactoe.component.vinner.WinnerByRows;
+import academy.devonline.tictactoe.component.winner.strategy.WinnerVerifierStrategy;
+import academy.devonline.tictactoe.component.winner.strategy.WinnerVerifierStrategyByCols;
+import academy.devonline.tictactoe.component.winner.strategy.WinnerVerifierStrategyByDiagonal;
+import academy.devonline.tictactoe.component.winner.strategy.WinnerVerifierStrategyByDiagonal2;
+import academy.devonline.tictactoe.component.winner.strategy.WinnerVerifierStrategyByRows;
 import academy.devonline.tictactoe.model.GameTable;
 
 /**
@@ -29,13 +30,12 @@ import academy.devonline.tictactoe.model.GameTable;
  */
 public class WinnerVerifier {
 
-    Winner[] winners = {
-            new WinnerByCols(),
-            new WinnerByRows(),
-            new WinnerByDiagonal(),
-            new WinnerByDiagonal(),
+    private final WinnerVerifierStrategy[] winnerVerifierStrategies = {
+            new WinnerVerifierStrategyByCols(),
+            new WinnerVerifierStrategyByRows(),
+            new WinnerVerifierStrategyByDiagonal(),
+            new WinnerVerifierStrategyByDiagonal2(),
     };
-
 
     public boolean isComputerWin(final GameTable gameTable) {
         return isWin(gameTable, '0');
@@ -46,8 +46,8 @@ public class WinnerVerifier {
     }
 
     private boolean isWin(final GameTable gameTable, final char sing) {
-        for (final Winner winner : winners) {
-            if (winner.isWinner(gameTable, sing)) {
+        for (final WinnerVerifierStrategy winnerVerifierStrategy : winnerVerifierStrategies) {
+            if (winnerVerifierStrategy.isWinner(gameTable, sing)) {
                 return true;
             }
         }

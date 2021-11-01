@@ -14,10 +14,11 @@
  * limitations under the License.
  */
 
-package academy.devonline.tictactoe.component;
+package academy.devonline.tictactoe.component.move.user;
 
-import academy.devonline.tictactoe.component.convertDigit.ConvertDigitToCell;
-import academy.devonline.tictactoe.component.tablesMappingforUserMove.TerminalMappingTable;
+import academy.devonline.tictactoe.component.DataPrinter;
+import academy.devonline.tictactoe.component.convertor.DigitConvertor;
+import academy.devonline.tictactoe.component.move.user.mapping.MappingTable;
 import academy.devonline.tictactoe.model.Cell;
 import academy.devonline.tictactoe.model.GameTable;
 
@@ -29,7 +30,20 @@ import java.util.Scanner;
  * tic-tac-toe
  */
 public class UserMove {
-    GameTable exampleMappingTableForUserMove = new TerminalMappingTable();
+
+    private final MappingTable mappingTable;
+
+    private final DataPrinter dataPrinter;
+
+    private final DigitConvertor digitConvertor;
+
+    public UserMove(final MappingTable mappingTable,
+                    final DataPrinter dataPrinter,
+                    final DigitConvertor digitConvertor) {
+        this.mappingTable = mappingTable;
+        this.dataPrinter = dataPrinter;
+        this.digitConvertor = digitConvertor;
+    }
 
     public void make(final GameTable gameTable) {
         while (true) {
@@ -38,19 +52,19 @@ public class UserMove {
                 gameTable.setSign(cell, 'x');
                 return;
             } else {
-                new DataPrinter().updateMoveCellIsNotFree();
+                dataPrinter.printNotEmptyCell();
             }
         }
     }
 
     private Cell tryGetUserCell() {
         while (true) {
-            new DataPrinter().printGameTableMessageUserMoveInstruction();
+            dataPrinter.printInputInstruction();
             final String userInput = new Scanner(System.in).nextLine();
             if (userInput.length() == 1) {
                 final char digit = userInput.charAt(0);
                 if (digit >= '1' && digit <= '9') {
-                    return new ConvertDigitToCell().convertDigitToCell(exampleMappingTableForUserMove, digit);
+                    return digitConvertor.convertDigitToCell(mappingTable, digit);
                 }
             }
         }

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package academy.devonline.tictactoe.component.vinner;
+package academy.devonline.tictactoe.component.move.computer.strategy;
 
 import academy.devonline.tictactoe.model.GameTable;
 
@@ -23,6 +23,9 @@ import academy.devonline.tictactoe.model.GameTable;
  * @link http://devonline.academy/java
  * tic-tac-toe
  */
-public interface Winner {
-    boolean isWinner(final GameTable gameTable, final char sign);
+public class TryToMakeNearestMoveComputerMoveStrategy extends BaseComputerMoveStrategy implements ComputerMoveStrategy {
+    @Override
+    public boolean tryToMakeMove(final GameTable gameTable) {
+        return tryToMakeMove('0', 'x', gameTable, 1, 2);
+    }
 }

@@ -14,9 +14,8 @@
  * limitations under the License.
  */
 
-package academy.devonline.tictactoe.component.convertDigit;
+package academy.devonline.tictactoe.component.move.computer.strategy;
 
-import academy.devonline.tictactoe.model.Cell;
 import academy.devonline.tictactoe.model.GameTable;
 
 /**
@@ -24,6 +23,18 @@ import academy.devonline.tictactoe.model.GameTable;
  * @link http://devonline.academy/java
  * tic-tac-toe
  */
-public interface ConvertDigit {
-    Cell convertDigitToCell(GameTable currentMappingKeyboard, final char digit);
+public class TryToWinComputerMoveStrategy extends BaseComputerMoveStrategy implements ComputerMoveStrategy {
+    @Override
+    public boolean tryToMakeMove(final GameTable gameTable) {
+        return tryToMakeMove(
+                '0',
+                'x',
+                gameTable,
+                2,
+                1
+        );
+    }
 }
+
+
+

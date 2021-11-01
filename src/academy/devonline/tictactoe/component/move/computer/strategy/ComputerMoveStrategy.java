@@ -14,9 +14,8 @@
  * limitations under the License.
  */
 
-package academy.devonline.tictactoe.component.vinner;
+package academy.devonline.tictactoe.component.move.computer.strategy;
 
-import academy.devonline.tictactoe.model.Cell;
 import academy.devonline.tictactoe.model.GameTable;
 
 /**
@@ -24,11 +23,6 @@ import academy.devonline.tictactoe.model.GameTable;
  * @link http://devonline.academy/java
  * tic-tac-toe
  */
-public class WinnerByDiagonal2 implements Winner {
-    @Override
-    public boolean isWinner(final GameTable gameTable, final char sign) {
-        return gameTable.getSign(new Cell(2, 0)) == gameTable.getSign(new Cell(1, 1)) &&
-                gameTable.getSign(new Cell(1, 1)) == gameTable.getSign(new Cell(0, 2)) &&
-                gameTable.getSign(new Cell(0, 2)) == sign;
-    }
+public interface ComputerMoveStrategy {
+    boolean tryToMakeMove(final GameTable gameTable);
 }

@@ -14,26 +14,20 @@
  * limitations under the License.
  */
 
-package academy.devonline.tictactoe.component.computerMoveStrategy;
-
-import academy.devonline.tictactoe.model.GameTable;
+package academy.devonline.tictactoe.component.move.user.mapping;
 
 /**
  * @author Maksym Horodniuk
  * @link http://devonline.academy/java
  * tic-tac-toe
  */
-public class StrategyComputerTryWin extends BaseComputerMoveStrategy implements ComputerMoveStrategy {
-    @Override
-    public boolean tryToMakeMoveComputerWin(final GameTable gameTable) {
-        return new StrategyComputerTryWin().tryToMakeMove(
-                '0',
-                'x',
-                gameTable,
-                2,
-                1);
+public class TerminalMappingTable extends MappingTable {
+    public TerminalMappingTable() {
+        super(new char[][]{
+                {'1', '2', '3'},
+                {'4', '5', '6'},
+                {'7', '8', '9'}
+        });
     }
+
 }
-
-
-

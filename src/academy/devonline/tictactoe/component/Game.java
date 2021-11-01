@@ -16,6 +16,9 @@
 
 package academy.devonline.tictactoe.component;
 
+import academy.devonline.tictactoe.component.move.computer.ComputerMove;
+import academy.devonline.tictactoe.component.move.user.UserMove;
+import academy.devonline.tictactoe.component.move.user.mapping.MappingTable;
 import academy.devonline.tictactoe.model.GameTable;
 
 import java.util.Random;
@@ -36,48 +39,53 @@ public class Game {
 
     private final CellVerifier cellVerifier;
 
+    private final MappingTable mappingTable;
+
     public Game(final DataPrinter dataPrinter,
                 final ComputerMove computerMove,
                 final UserMove userMove,
                 final WinnerVerifier winnerVerifier,
-                final CellVerifier cellVerifier) {
+                final CellVerifier cellVerifier,
+                final MappingTable mappingTable) {
         this.dataPrinter = dataPrinter;
         this.computerMove = computerMove;
         this.userMove = userMove;
         this.winnerVerifier = winnerVerifier;
         this.cellVerifier = cellVerifier;
+        this.mappingTable = mappingTable;
     }
 
     public void play() {
-        dataPrinter.printGameTableMessageUserMoveInstructionMapping();
-        dataPrinter.printGameTable(userMove.exampleMappingTableForUserMove);
+        dataPrinter.printInstructionMessage();
+        dataPrinter.printMappingTable(mappingTable);
+       // dataPrinter.printGameTable(userMove.exampleMappingTableForUserMove);
         final GameTable gameTable = new GameTable();
         if (new Random().nextBoolean()) {
-            computerMove.makeComputerStrategy(gameTable);
+            computerMove.make(gameTable);
             dataPrinter.printGameTable(gameTable);
         }
         while (true) {
             userMove.make(gameTable);
             dataPrinter.printGameTable(gameTable);
             if (winnerVerifier.isUserWin(gameTable)) {
-                dataPrinter.printGameTableMessageUserWin();
+                dataPrinter.printUserWin();
                 break;
             }
             if (cellVerifier.allCellsFilled(gameTable)) {
-                dataPrinter.printGameTableMessageGameDraw();
+                dataPrinter.printDraw();
                 break;
             }
-            computerMove.makeComputerStrategy(gameTable);
+            computerMove.make(gameTable);
             dataPrinter.printGameTable(gameTable);
             if (winnerVerifier.isComputerWin(gameTable)) {
-                dataPrinter.printGameTableMessageComputerWin();
+                dataPrinter.printComputerWin();
                 break;
             }
             if (cellVerifier.allCellsFilled(gameTable)) {
-                dataPrinter.printGameTableMessageGameDraw();
+                dataPrinter.printDraw();
                 break;
             }
         }
-        dataPrinter.printGameTableMessageGameOver();
+        dataPrinter.printGameOver();
     }
 }

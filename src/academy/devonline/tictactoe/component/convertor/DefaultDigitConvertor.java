@@ -14,23 +14,28 @@
  * limitations under the License.
  */
 
-package academy.devonline.tictactoe.component.tablesMappingforUserMove;
+package academy.devonline.tictactoe.component.convertor;
 
+import academy.devonline.tictactoe.component.move.user.mapping.MappingTable;
+import academy.devonline.tictactoe.model.Cell;
 import academy.devonline.tictactoe.model.GameTable;
+
 
 /**
  * @author Maksym Horodniuk
  * @link http://devonline.academy/java
  * tic-tac-toe
  */
-public class DesktopMappingTable extends GameTable {
-    public DesktopMappingTable() {
-        super(new char[][]{
-                {'7', '8', '9'},
-                {'4', '5', '6'},
-                {'1', '2', '3'}
-        });
+public class DefaultDigitConvertor implements DigitConvertor {
+    @Override
+    public Cell convertDigitToCell(final MappingTable mappingTable, final char digit) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (mappingTable.getSign(new Cell(i, j)) == digit) {
+                    return new Cell(i, j);
+                }
+            }
+        }
+        return null;
     }
-
-
 }

@@ -14,19 +14,16 @@
  * limitations under the License.
  */
 
-package academy.devonline.tictactoe.component.computerMoveStrategy;
+package academy.devonline.tictactoe.component.convertor;
 
-import academy.devonline.tictactoe.model.GameTable;
+import academy.devonline.tictactoe.component.move.user.mapping.MappingTable;
+import academy.devonline.tictactoe.model.Cell;
 
 /**
  * @author Maksym Horodniuk
  * @link http://devonline.academy/java
  * tic-tac-toe
  */
-public class StrategyComputerTryPreventUserWin extends BaseComputerMoveStrategy implements ComputerMoveStrategy {
-
-    @Override
-    public boolean tryToMakeMoveComputerWin(final GameTable gameTable) {
-        return new StrategyComputerTryPreventUserWin().tryToMakeMove('x', '0', gameTable, 2, 1);
-    }
+public interface DigitConvertor {
+    Cell convertDigitToCell(MappingTable mappingTable, char digit);
 }

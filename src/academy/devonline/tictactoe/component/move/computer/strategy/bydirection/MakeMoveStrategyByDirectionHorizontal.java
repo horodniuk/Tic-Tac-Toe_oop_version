@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package academy.devonline.tictactoe.component.computerMoveStrategy.tryToMakeMoveBy;
+package academy.devonline.tictactoe.component.move.computer.strategy.bydirection;
 
 import academy.devonline.tictactoe.model.Cell;
 import academy.devonline.tictactoe.model.GameTable;
@@ -24,23 +24,25 @@ import academy.devonline.tictactoe.model.GameTable;
  * @link http://devonline.academy/java
  * tic-tac-toe
  */
-public class TryToMakeMoveByHorizontal implements TryToMakeMoveBy {
+public class MakeMoveStrategyByDirectionHorizontal implements MakeMoveStrategyByDirection {
 
     @Override
-    public boolean isMakeMoveBy(final char searchSymbol, final char skipSymbol, final GameTable gameTable, final int expectedSearchSymbolCount, final int expectedEmptyCount) {
+    public boolean tryToMakeMoveByDirection(final char searchSymbol, final char skipSymbol, final GameTable gameTable, final int expectedSearchSymbolCount, final int expectedEmptyCount) {
         for (int i = 0; i < 3; i++) {
             int mooveIndex = 0;
             int empty = 0;
             int count = 0;
             for (int j = 0; j < 3; j++) {
-                if (gameTable.getSign(new Cell(i, j)) == skipSymbol) {
+                final Cell cell = new Cell(i, j);
+                final char realSign = gameTable.getSign(cell);
+                if (realSign == skipSymbol) {
                     break;
                 }
-                if (gameTable.getSign(new Cell(i, j)) == ' ') {
+                if (gameTable.isEmpty(cell)) {
                     mooveIndex = j;
                     empty++;
                 }
-                if (gameTable.getSign(new Cell(i, j)) == searchSymbol) {
+                if (realSign == searchSymbol) {
                     count++;
                 }
             }

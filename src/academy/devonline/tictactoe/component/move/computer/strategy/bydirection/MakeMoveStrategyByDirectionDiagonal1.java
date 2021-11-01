@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package academy.devonline.tictactoe.component.computerMoveStrategy.tryToMakeMoveBy;
+package academy.devonline.tictactoe.component.move.computer.strategy.bydirection;
 
 import academy.devonline.tictactoe.model.Cell;
 import academy.devonline.tictactoe.model.GameTable;
@@ -24,30 +24,29 @@ import academy.devonline.tictactoe.model.GameTable;
  * @link http://devonline.academy/java
  * tic-tac-toe
  */
-public class TryToMakeMoveByVertical implements TryToMakeMoveBy {
+public class MakeMoveStrategyByDirectionDiagonal1 implements MakeMoveStrategyByDirection {
     @Override
-    public boolean isMakeMoveBy(final char searchSymbol, final char skipSymbol, final GameTable gameTable, final int expectedSearchSymbolCount, final int expectedEmptyCount) {
-        for (int i = 0; i < 3; i++) {
+    public boolean tryToMakeMoveByDirection(final char searchSymbol, final char skipSymbol, final GameTable gameTable, final int expectedSearchSymbolCount, final int expectedEmptyCount) {
+        for (int i = 0; i < 1; i++) {
             int mooveIndex = 0;
             int empty = 0;
             int count = 0;
             for (int j = 0; j < 3; j++) {
-                if (gameTable.getSign(new Cell(j, i)) == skipSymbol) {
+                if (gameTable.getSign(new Cell(j, j)) == skipSymbol) {
                     break;
                 }
-                if (gameTable.getSign(new Cell(j, i)) == ' ') {
+                if (gameTable.getSign(new Cell(j, j)) == ' ') {
                     mooveIndex = j;
                     empty++;
                 }
-                if (gameTable.getSign(new Cell(j, i)) == searchSymbol) {
+                if (gameTable.getSign(new Cell(j, j)) == searchSymbol) {
                     count++;
                 }
             }
             if (count == expectedSearchSymbolCount && empty == expectedEmptyCount) {
-                gameTable.setSign(new Cell(mooveIndex, i), '0');
+                gameTable.setSign(new Cell(mooveIndex, mooveIndex), '0');
                 return true;
             }
-
         }
         return false;
     }

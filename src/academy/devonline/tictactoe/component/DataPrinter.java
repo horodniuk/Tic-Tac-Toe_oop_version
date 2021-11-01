@@ -16,6 +16,8 @@
 
 package academy.devonline.tictactoe.component;
 
+import academy.devonline.tictactoe.component.move.user.mapping.DesktopMappingTable;
+import academy.devonline.tictactoe.component.move.user.mapping.MappingTable;
 import academy.devonline.tictactoe.model.Cell;
 import academy.devonline.tictactoe.model.GameTable;
 
@@ -36,34 +38,35 @@ public class DataPrinter {
         System.out.println("----------");
     }
 
+    public void printMappingTable(final MappingTable mappingTable) {
+        printGameTable(mappingTable);
+    }
 
-    public void printGameTableMessageUserMoveInstructionMapping() {
+    public void printInstructionMessage() {
         System.out.println("Use the following mapping table to specify a cell using numbers from 1 to 9:");
     }
 
-    public void printGameTableMessageUserMoveInstruction() {
+    public void printInputInstruction() {
         System.out.println("Please type number between 1 and 9:");
     }
 
-    public void updateMoveCellIsNotFree() {
+    public void printNotEmptyCell() {
         System.out.println("Can't make a move, because the cell is not free! Try again!");
     }
 
-    public void printGameTableMessageUserWin() {
+    public void printUserWin() {
         System.out.println("YOU WIN!");
     }
 
-    public void printGameTableMessageComputerWin() {
+    public void printComputerWin() {
         System.out.println("COMPUTER WIN!");
     }
 
-    public void printGameTableMessageGameDraw() {
+    public void printDraw() {
         System.out.println("Sorry, DRAW!");
     }
 
-    public void printGameTableMessageGameOver() {
+    public void printGameOver() {
         System.out.println("GAME OVER!");
     }
-
-
 }

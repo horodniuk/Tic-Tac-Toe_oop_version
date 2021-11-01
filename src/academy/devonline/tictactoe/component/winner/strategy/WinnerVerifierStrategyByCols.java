@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package academy.devonline.tictactoe.component.computerMoveStrategy;
+package academy.devonline.tictactoe.component.winner.strategy;
 
 import academy.devonline.tictactoe.model.Cell;
 import academy.devonline.tictactoe.model.GameTable;
@@ -24,13 +24,15 @@ import academy.devonline.tictactoe.model.GameTable;
  * @link http://devonline.academy/java
  * tic-tac-toe
  */
-public class StrategyComputerTryCenterMove implements ComputerMoveStrategy {
+public class WinnerVerifierStrategyByCols implements WinnerVerifierStrategy {
     @Override
-    public boolean tryToMakeMoveComputerWin(final GameTable gameTable) {
-        Cell centerCell = new Cell(1, 1);
-        if (gameTable.isEmpty(centerCell)) {
-            gameTable.setSign(centerCell, '0');
-            return true;
+    public boolean isWinner(final GameTable gameTable, final char sign) {
+        for (int i = 0; i < 3; i++) {
+            if (gameTable.getSign(new Cell(0, i)) == gameTable.getSign(new Cell(1, i)) &&
+                    gameTable.getSign(new Cell(1, i)) == gameTable.getSign(new Cell(2, i)) &&
+                    gameTable.getSign(new Cell(2, i)) == sign) {
+                return true;
+            }
         }
         return false;
     }

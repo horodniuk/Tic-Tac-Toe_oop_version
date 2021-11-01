@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package academy.devonline.tictactoe.component.computerMoveStrategy;
+package academy.devonline.tictactoe.component.move.computer.strategy;
 
-import academy.devonline.tictactoe.component.computerMoveStrategy.tryToMakeMoveBy.*;
+import academy.devonline.tictactoe.component.move.computer.strategy.bydirection.*;
 import academy.devonline.tictactoe.model.GameTable;
 
 /**
@@ -26,11 +26,11 @@ import academy.devonline.tictactoe.model.GameTable;
  */
 public class BaseComputerMoveStrategy {
 
-    TryToMakeMoveBy[] checkingTableLines = {
-            new TryToMakeMoveByHorizontal(),
-            new TryToMakeMoveByVertical(),
-            new TryToMakeMoveByDiagonal1(),
-            new TryToMakeMoveByDiagonal2(),
+    private final MakeMoveStrategyByDirection[] strategyByDirections = {
+            new MakeMoveStrategyByDirectionHorizontal(),
+            new MakeMoveStrategyByDirectionVertical(),
+            new MakeMoveStrategyByDirectionDiagonal1(),
+            new MakeMoveStrategyByDirectionDiagonal2(),
     };
 
     protected boolean tryToMakeMove(
@@ -40,8 +40,8 @@ public class BaseComputerMoveStrategy {
             final int expectedSearchSymbolCount,
             final int expectedEmptyCount) {
 
-        for (final TryToMakeMoveBy tryToMakeMoveBy : checkingTableLines) {
-            if (tryToMakeMoveBy.isMakeMoveBy(
+        for (final MakeMoveStrategyByDirection makeMoveStrategyByDirection : strategyByDirections) {
+            if (makeMoveStrategyByDirection.tryToMakeMoveByDirection(
                     searchSymbol,
                     skipSymbol,
                     gameTable,

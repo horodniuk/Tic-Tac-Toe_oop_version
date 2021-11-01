@@ -16,7 +16,16 @@
 
 package academy.devonline.tictactoe;
 
-import academy.devonline.tictactoe.component.*;
+import academy.devonline.tictactoe.component.CellVerifier;
+import academy.devonline.tictactoe.component.DataPrinter;
+import academy.devonline.tictactoe.component.Game;
+import academy.devonline.tictactoe.component.WinnerVerifier;
+import academy.devonline.tictactoe.component.convertor.DigitConvertor;
+import academy.devonline.tictactoe.component.convertor.DefaultDigitConvertor;
+import academy.devonline.tictactoe.component.move.computer.ComputerMove;
+import academy.devonline.tictactoe.component.move.user.UserMove;
+import academy.devonline.tictactoe.component.move.user.mapping.DesktopMappingTable;
+import academy.devonline.tictactoe.component.move.user.mapping.MappingTable;
 
 /**
  * @author devonline
@@ -25,7 +34,17 @@ import academy.devonline.tictactoe.component.*;
  */
 public final class Launcher {
     public static void main(final String[] args) {
-        Game game = new Game(new DataPrinter(), new ComputerMove(), new UserMove(), new WinnerVerifier(), new CellVerifier());
+        final MappingTable mappingTable = new DesktopMappingTable();
+        final DataPrinter dataPrinter = new DataPrinter();
+        final DigitConvertor digitConvertor = new DefaultDigitConvertor();
+        Game game = new Game(
+                dataPrinter,
+                new ComputerMove(),
+                new UserMove(mappingTable, dataPrinter, digitConvertor),
+                new WinnerVerifier(),
+                new CellVerifier(),
+                mappingTable
+        );
         game.play();
     }
 

@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 
-package academy.devonline.tictactoe.component.computerMoveStrategy.tryToMakeMoveBy;
+package academy.devonline.tictactoe.component.winner.strategy;
 
+import academy.devonline.tictactoe.model.Cell;
 import academy.devonline.tictactoe.model.GameTable;
 
 /**
@@ -23,10 +24,12 @@ import academy.devonline.tictactoe.model.GameTable;
  * @link http://devonline.academy/java
  * tic-tac-toe
  */
-public interface TryToMakeMoveBy {
-    boolean isMakeMoveBy(final char searchSymbol,
-                         final char skipSymbol,
-                         final GameTable gameTable,
-                         final int expectedSearchSymbolCount,
-                         final int expectedEmptyCount);
+public class WinnerVerifierStrategyByDiagonal implements WinnerVerifierStrategy {
+
+    @Override
+    public boolean isWinner(final GameTable gameTable, final char sign) {
+        return gameTable.getSign(new Cell(0, 0)) == gameTable.getSign(new Cell(1, 1)) &&
+                gameTable.getSign(new Cell(1, 1)) == gameTable.getSign(new Cell(2, 2)) &&
+                gameTable.getSign(new Cell(2, 2)) == sign;
+    }
 }

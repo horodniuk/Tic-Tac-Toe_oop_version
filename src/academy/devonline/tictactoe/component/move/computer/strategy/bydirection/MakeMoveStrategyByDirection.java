@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package academy.devonline.tictactoe.component.computerMoveStrategy;
+package academy.devonline.tictactoe.component.move.computer.strategy.bydirection;
 
 import academy.devonline.tictactoe.model.GameTable;
 
@@ -23,6 +23,10 @@ import academy.devonline.tictactoe.model.GameTable;
  * @link http://devonline.academy/java
  * tic-tac-toe
  */
-public interface ComputerMoveStrategy {
-    boolean tryToMakeMoveComputerWin(final GameTable gameTable);
+public interface MakeMoveStrategyByDirection {
+    boolean tryToMakeMoveByDirection(char searchSymbol,
+                                     char skipSymbol,
+                                     GameTable gameTable,
+                                     int expectedSearchSymbolCount,
+                                     int expectedEmptyCount);
 }

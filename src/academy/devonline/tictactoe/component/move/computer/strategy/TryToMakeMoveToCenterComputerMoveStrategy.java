@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 
-package academy.devonline.tictactoe.component.tablesMappingforUserMove;
+package academy.devonline.tictactoe.component.move.computer.strategy;
 
+import academy.devonline.tictactoe.model.Cell;
 import academy.devonline.tictactoe.model.GameTable;
 
 /**
@@ -23,13 +24,14 @@ import academy.devonline.tictactoe.model.GameTable;
  * @link http://devonline.academy/java
  * tic-tac-toe
  */
-public class TerminalMappingTable extends GameTable {
-    public TerminalMappingTable() {
-        super(new char[][]{
-                {'1', '2', '3'},
-                {'4', '5', '6'},
-                {'7', '8', '9'}
-        });
+public class TryToMakeMoveToCenterComputerMoveStrategy implements ComputerMoveStrategy {
+    @Override
+    public boolean tryToMakeMove(final GameTable gameTable) {
+        Cell centerCell = new Cell(1, 1);
+        if (gameTable.isEmpty(centerCell)) {
+            gameTable.setSign(centerCell, '0');
+            return true;
+        }
+        return false;
     }
-
 }
