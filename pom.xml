@@ -97,7 +97,7 @@
                     <configuration>
                         <archive>
                             <manifest>
-                                <mainClass>main.java.tictactoe.Launcher</mainClass>
+                                <mainClass>main.java.academy.devonline.tictactoe.Launcher</mainClass>
                             </manifest>
                         </archive>
                     </configuration>
