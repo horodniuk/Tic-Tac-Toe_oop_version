@@ -15,6 +15,8 @@
 # limitations under the License.
 #
 
+cd "$(dirname "$0")" || exit
+
 java -jar ${project.build.finalName}.jar
 echo "Press enter to continue . . ."
 read -r test
