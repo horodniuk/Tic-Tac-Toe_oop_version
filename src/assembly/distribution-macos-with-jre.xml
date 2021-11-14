@@ -17,7 +17,7 @@
 <!-- https://maven.apache.org/plugins/maven-assembly-plugin/assembly.html -->
 <assembly xmlns="http://maven.apache.org/ASSEMBLY/2.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.1.0 http://maven.apache.org/xsd/assembly-2.1.0.xsd">
-    <id>mac-with-jre</id>
+    <id>macos-with-jre</id>
     <formats>
         <format>tar.gz</format>
     </formats>
@@ -50,7 +50,7 @@
             <filtered>true</filtered>
         </fileSet>
         <fileSet>
-            <directory>.tmp/jre-mac</directory>
+            <directory>.tmp/jre-macos</directory>
             <outputDirectory>jre</outputDirectory>
             <includes>
                 <include>bin/java</include>
@@ -59,7 +59,7 @@
             <fileMode>755</fileMode>
         </fileSet>
         <fileSet>
-            <directory>.tmp/jre-mac</directory>
+            <directory>.tmp/jre-macos</directory>
             <outputDirectory>jre</outputDirectory>
             <excludes>
                 <exclude>bin/java</exclude>
