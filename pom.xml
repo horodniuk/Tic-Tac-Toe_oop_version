@@ -13,17 +13,18 @@
   ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
+  ~
   -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>academy.devonline</groupId>
-    <artifactId>TIC_TAC_TOE</artifactId>
+    <artifactId>tic-tac-toe</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <name>TIC_TAC_TOE</name>
-    <description>TIC_TAC_TOE GAME</description>
+    <name>tic-tac-toe</name>
+    <description>The Tic-Tac-Toe simple game using console mode</description>
     <url>http://devonline.academy/java</url>
     <organization>
         <name>DevOnline Academy</name>
@@ -45,9 +46,9 @@
         </license>
     </licenses>
     <scm>
-        <connection>scm:git:git://github.com/devonline-academy/TODO.git</connection>
-        <developerConnection>scm:git:ssh://github.com:devonline-academy/TODO.git</developerConnection>
-        <url>http://github.com/devonline-academy/TODO/tree/master</url>
+        <connection>scm:git:git://github.com/devonline-academy/tic-tac-toe.git</connection>
+        <developerConnection>scm:git:ssh://github.com:devonline-academy/tic-tac-toe.git</developerConnection>
+        <url>http://github.com/devonline-academy/tic-tac-toe/tree/master</url>
     </scm>
 
     <properties>
@@ -65,12 +66,12 @@
         <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
         <maven-site-plugin.version>3.9.1</maven-site-plugin.version>
         <maven-project-info-reports-plugin.version>3.1.2</maven-project-info-reports-plugin.version>
+
+        <!-- Maven additional plugins -->
+        <maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
     </properties>
 
     <build>
-        <sourceDirectory>src</sourceDirectory>
-        <directory>out</directory>
-
         <pluginManagement>
             <plugins>
                 <!-- clean lifecycle -->
@@ -97,7 +98,7 @@
                     <configuration>
                         <archive>
                             <manifest>
-                                <mainClass>main.java.academy.devonline.tictactoe.Launcher</mainClass>
+                                <mainClass>academy.devonline.tictactoe.Launcher</mainClass>
                             </manifest>
                         </archive>
                     </configuration>
@@ -119,7 +120,33 @@
                     <artifactId>maven-project-info-reports-plugin</artifactId>
                     <version>${maven-project-info-reports-plugin.version}</version>
                 </plugin>
+
+                <!--   <plugin>
+                       <artifactId>maven-assembly-plugin</artifactId>
+                       <version>${maven-assembly-plugin.version}</version>
+                   </plugin>-->
             </plugins>
         </pluginManagement>
+        <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>${maven-assembly-plugin.version}</version>
+                <configuration>
+                    <descriptors>
+                        <descriptor>src/assembly/distribution-windows.xml</descriptor>
+                    </descriptors>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+
+
     </build>
 </project>
