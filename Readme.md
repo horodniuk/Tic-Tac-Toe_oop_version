@@ -1,8 +1,8 @@
-# ${project.name} Project
+# Tic tac toe Project
 
 -----------------------------------------------------------------------------------
 
-## game ${project.name} with a smart computer move.
+## game Tic tac toe with a smart computer move.
 
 ## Without JRE
 
