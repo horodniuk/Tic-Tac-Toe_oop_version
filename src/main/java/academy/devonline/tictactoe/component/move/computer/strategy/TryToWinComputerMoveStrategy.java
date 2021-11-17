@@ -18,6 +18,9 @@ package academy.devonline.tictactoe.component.move.computer.strategy;
 
 import academy.devonline.tictactoe.model.GameTable;
 
+import static academy.devonline.tictactoe.model.Sign.O;
+import static academy.devonline.tictactoe.model.Sign.X;
+
 /**
  * @author Maksym Horodniuk
  * @link http://devonline.devonline.academy/java
@@ -27,8 +30,8 @@ public class TryToWinComputerMoveStrategy extends BaseComputerMoveStrategy imple
     @Override
     public boolean tryToMakeMove(final GameTable gameTable) {
         return tryToMakeMove(
-                '0',
-                'x',
+                O,
+                X,
                 gameTable,
                 2,
                 1

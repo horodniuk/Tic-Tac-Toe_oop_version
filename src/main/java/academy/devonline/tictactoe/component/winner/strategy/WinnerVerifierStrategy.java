@@ -17,6 +17,7 @@
 package academy.devonline.tictactoe.component.winner.strategy;
 
 import academy.devonline.tictactoe.model.GameTable;
+import academy.devonline.tictactoe.model.Sign;
 
 /**
  * @author Maksym Horodniuk
@@ -24,5 +25,5 @@ import academy.devonline.tictactoe.model.GameTable;
  * tic-tac-toe
  */
 public interface WinnerVerifierStrategy {
-    boolean isWinner(GameTable gameTable, char sign);
+    boolean isWinner(GameTable gameTable, Sign sign);
 }

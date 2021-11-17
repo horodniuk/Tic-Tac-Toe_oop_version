@@ -18,6 +18,7 @@ package academy.devonline.tictactoe.component.move.computer.strategy;
 
 import academy.devonline.tictactoe.component.move.computer.strategy.bydirection.*;
 import academy.devonline.tictactoe.model.GameTable;
+import academy.devonline.tictactoe.model.Sign;
 
 /**
  * @author Maksym Horodniuk
@@ -34,8 +35,8 @@ public class BaseComputerMoveStrategy {
     };
 
     protected boolean tryToMakeMove(
-            final char searchSymbol,
-            final char skipSymbol,
+            final Sign searchSymbol,
+            final Sign skipSymbol,
             final GameTable gameTable,
             final int expectedSearchSymbolCount,
             final int expectedEmptyCount) {

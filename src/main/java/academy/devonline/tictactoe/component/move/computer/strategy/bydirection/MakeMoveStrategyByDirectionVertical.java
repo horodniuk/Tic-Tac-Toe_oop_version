@@ -18,6 +18,10 @@ package academy.devonline.tictactoe.component.move.computer.strategy.bydirection
 
 import academy.devonline.tictactoe.model.Cell;
 import academy.devonline.tictactoe.model.GameTable;
+import academy.devonline.tictactoe.model.Sign;
+
+import static academy.devonline.tictactoe.model.Sign.EMPTY;
+import static academy.devonline.tictactoe.model.Sign.O;
 
 /**
  * @author Maksym Horodniuk
@@ -26,7 +30,7 @@ import academy.devonline.tictactoe.model.GameTable;
  */
 public class MakeMoveStrategyByDirectionVertical implements MakeMoveStrategyByDirection {
     @Override
-    public boolean tryToMakeMoveByDirection(final char searchSymbol, final char skipSymbol, final GameTable gameTable, final int expectedSearchSymbolCount, final int expectedEmptyCount) {
+    public boolean tryToMakeMoveByDirection(final Sign searchSymbol, final Sign skipSymbol, final GameTable gameTable, final int expectedSearchSymbolCount, final int expectedEmptyCount) {
         for (int i = 0; i < 3; i++) {
             int mooveIndex = 0;
             int empty = 0;
@@ -35,7 +39,7 @@ public class MakeMoveStrategyByDirectionVertical implements MakeMoveStrategyByDi
                 if (gameTable.getSign(new Cell(j, i)) == skipSymbol) {
                     break;
                 }
-                if (gameTable.getSign(new Cell(j, i)) == ' ') {
+                if (gameTable.getSign(new Cell(j, i)) == EMPTY) {
                     mooveIndex = j;
                     empty++;
                 }
@@ -44,7 +48,7 @@ public class MakeMoveStrategyByDirectionVertical implements MakeMoveStrategyByDi
                 }
             }
             if (count == expectedSearchSymbolCount && empty == expectedEmptyCount) {
-                gameTable.setSign(new Cell(mooveIndex, i), '0');
+                gameTable.setSign(new Cell(mooveIndex, i), O);
                 return true;
             }
 

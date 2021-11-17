@@ -18,6 +18,7 @@ package academy.devonline.tictactoe.component.winner.strategy;
 
 import academy.devonline.tictactoe.model.Cell;
 import academy.devonline.tictactoe.model.GameTable;
+import academy.devonline.tictactoe.model.Sign;
 
 /**
  * @author Maksym Horodniuk
@@ -26,7 +27,7 @@ import academy.devonline.tictactoe.model.GameTable;
  */
 public class WinnerVerifierStrategyByRows implements WinnerVerifierStrategy {
     @Override
-    public boolean isWinner(final GameTable gameTable, final char sign) {
+    public boolean isWinner(final GameTable gameTable, final Sign sign) {
         for (int i = 0; i < 3; i++) {
             if (gameTable.getSign(new Cell(i, 0)) == gameTable.getSign(new Cell(i, 1)) &&
                     gameTable.getSign(new Cell(i, 1)) == gameTable.getSign(new Cell(i, 2)) &&

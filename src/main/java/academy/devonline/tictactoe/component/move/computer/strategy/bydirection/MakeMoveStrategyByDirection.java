@@ -17,6 +17,7 @@
 package academy.devonline.tictactoe.component.move.computer.strategy.bydirection;
 
 import academy.devonline.tictactoe.model.GameTable;
+import academy.devonline.tictactoe.model.Sign;
 
 /**
  * @author Maksym Horodniuk
@@ -24,8 +25,8 @@ import academy.devonline.tictactoe.model.GameTable;
  * tic-tac-toe
  */
 public interface MakeMoveStrategyByDirection {
-    boolean tryToMakeMoveByDirection(char searchSymbol,
-                                     char skipSymbol,
+    boolean tryToMakeMoveByDirection(Sign searchSymbol,
+                                     Sign skipSymbol,
                                      GameTable gameTable,
                                      int expectedSearchSymbolCount,
                                      int expectedEmptyCount);

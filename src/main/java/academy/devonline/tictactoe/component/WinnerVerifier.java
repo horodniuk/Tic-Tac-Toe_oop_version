@@ -18,6 +18,10 @@ package academy.devonline.tictactoe.component;
 
 import academy.devonline.tictactoe.component.winner.strategy.*;
 import academy.devonline.tictactoe.model.GameTable;
+import academy.devonline.tictactoe.model.Sign;
+
+import static academy.devonline.tictactoe.model.Sign.O;
+import static academy.devonline.tictactoe.model.Sign.X;
 
 /**
  * @author devonline
@@ -34,14 +38,14 @@ public class WinnerVerifier {
     };
 
     public boolean isComputerWin(final GameTable gameTable) {
-        return isWin(gameTable, '0');
+        return isWin(gameTable, O);
     }
 
     public boolean isUserWin(final GameTable gameTable) {
-        return isWin(gameTable, 'x');
+        return isWin(gameTable, X);
     }
 
-    private boolean isWin(final GameTable gameTable, final char sing) {
+    private boolean isWin(final GameTable gameTable, final Sign sing) {
         for (final WinnerVerifierStrategy winnerVerifierStrategy : winnerVerifierStrategies) {
             if (winnerVerifierStrategy.isWinner(gameTable, sing)) {
                 return true;

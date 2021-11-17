@@ -26,20 +26,28 @@ import academy.devonline.tictactoe.model.GameTable;
  * tic-tac-toe
  */
 public class DataPrinter {
-    public void printGameTable( GameTable gameTable) {
+    public void printGameTable(GameTable gameTable) {
         for (int i = 0; i < 3; i++) {
             System.out.println("----------");
             for (int j = 0; j < 3; j++) {
-                System.out.print("|" + gameTable.getSign(new Cell(i, j))+ " ");
+                System.out.print("|" + gameTable.getSign(new Cell(i, j)) + " ");
             }
             System.out.println("|");
         }
         System.out.println("----------");
     }
 
-    public void printMappingTable(final MappingTable mappingTable) {
-        printGameTable(mappingTable);
+    public void printGameTable(MappingTable mappingTable) {
+        for (int i = 0; i < 3; i++) {
+            System.out.println("----------");
+            for (int j = 0; j < 3; j++) {
+                System.out.print("|" + mappingTable.getSign(new Cell(i, j)) + " ");
+            }
+            System.out.println("|");
+        }
+        System.out.println("----------");
     }
+
 
     public void printInstructionMessage() {
         System.out.println("Use the following mapping table to specify a cell using numbers from 1 to 9:");

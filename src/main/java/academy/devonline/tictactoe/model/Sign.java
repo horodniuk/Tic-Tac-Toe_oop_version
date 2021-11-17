@@ -14,21 +14,25 @@
  * limitations under the License.
  */
 
-package academy.devonline.tictactoe.component.move.computer.strategy;
-
-import academy.devonline.tictactoe.model.GameTable;
-
-import static academy.devonline.tictactoe.model.Sign.O;
-import static academy.devonline.tictactoe.model.Sign.X;
+package academy.devonline.tictactoe.model;
 
 /**
  * @author Maksym Horodniuk
- * @link http://devonline.devonline.academy/java
+ * @link http://devonline.academy/java
  * tic-tac-toe
  */
-public class TryToMakeNearestMoveComputerMoveStrategy extends BaseComputerMoveStrategy implements ComputerMoveStrategy {
+public enum Sign {
+    EMPTY,
+    X,
+    O;
+
+
     @Override
-    public boolean tryToMakeMove(final GameTable gameTable) {
-        return tryToMakeMove(O, X, gameTable, 1, 2);
+    public String toString() {
+        if (this == EMPTY) {
+            return " ";
+        } else {
+            return name();
+        }
     }
 }

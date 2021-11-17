@@ -57,9 +57,9 @@ public class Game {
 
     public void play() {
         dataPrinter.printInstructionMessage();
-        dataPrinter.printMappingTable(mappingTable);
-       // dataPrinter.printGameTable(userMove.exampleMappingTableForUserMove);
+
         final GameTable gameTable = new GameTable();
+        dataPrinter.printGameTable(mappingTable);
         if (new Random().nextBoolean()) {
             computerMove.make(gameTable);
             dataPrinter.printGameTable(gameTable);

@@ -21,6 +21,8 @@ import academy.devonline.tictactoe.model.GameTable;
 
 import java.util.Random;
 
+import static academy.devonline.tictactoe.model.Sign.O;
+
 /**
  * @author Maksym Horodniuk
  * @link http://devonline.devonline.academy/java
@@ -36,7 +38,7 @@ public class RandomComputerMoveStrategy implements ComputerMoveStrategy {
             final int col = random.nextInt(3);
             final Cell randomCell = new Cell(row, col);
             if (gameTable.isEmpty(randomCell)) {
-                gameTable.setSign(randomCell, '0');
+                gameTable.setSign(randomCell, O);
                 return true;
             }
         }

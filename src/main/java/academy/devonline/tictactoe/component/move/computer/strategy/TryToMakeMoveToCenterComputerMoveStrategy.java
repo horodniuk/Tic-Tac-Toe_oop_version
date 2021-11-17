@@ -19,6 +19,8 @@ package academy.devonline.tictactoe.component.move.computer.strategy;
 import academy.devonline.tictactoe.model.Cell;
 import academy.devonline.tictactoe.model.GameTable;
 
+import static academy.devonline.tictactoe.model.Sign.O;
+
 /**
  * @author Maksym Horodniuk
  * @link http://devonline.devonline.academy/java
@@ -29,7 +31,7 @@ public class TryToMakeMoveToCenterComputerMoveStrategy implements ComputerMoveSt
     public boolean tryToMakeMove(final GameTable gameTable) {
         Cell centerCell = new Cell(1, 1);
         if (gameTable.isEmpty(centerCell)) {
-            gameTable.setSign(centerCell, '0');
+            gameTable.setSign(centerCell, O);
             return true;
         }
         return false;

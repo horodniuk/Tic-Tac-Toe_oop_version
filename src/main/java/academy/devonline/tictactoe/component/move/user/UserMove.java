@@ -24,6 +24,8 @@ import academy.devonline.tictactoe.model.GameTable;
 
 import java.util.Scanner;
 
+import static academy.devonline.tictactoe.model.Sign.X;
+
 /**
  * @author devonline
  * @link http://devonline.devonline.academy/java
@@ -49,7 +51,7 @@ public class UserMove {
         while (true) {
             final Cell cell = tryGetUserCell();
             if (gameTable.isEmpty(cell)) {
-                gameTable.setSign(cell, 'x');
+                gameTable.setSign(cell, X);
                 return;
             } else {
                 dataPrinter.printNotEmptyCell();
