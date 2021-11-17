@@ -26,26 +26,30 @@ import academy.devonline.tictactoe.model.GameTable;
  * tic-tac-toe
  */
 public class DataPrinter {
+
     public void printGameTable(GameTable gameTable) {
+        print((i, j) -> String.valueOf(gameTable.getSign(new Cell(i, j))));
+    }
+
+    public void printGameTable(MappingTable mappingTable) {
+        print((i, j) -> String.valueOf(mappingTable.getSign(new Cell(i, j))));
+    }
+
+
+    private void print(PrintTable printTable) {
         for (int i = 0; i < 3; i++) {
             System.out.println("----------");
             for (int j = 0; j < 3; j++) {
-                System.out.print("|" + gameTable.getSign(new Cell(i, j)) + " ");
+                System.out.print("|" + printTable.getPrintTable(i, j) + " ");
             }
             System.out.println("|");
         }
         System.out.println("----------");
     }
 
-    public void printGameTable(MappingTable mappingTable) {
-        for (int i = 0; i < 3; i++) {
-            System.out.println("----------");
-            for (int j = 0; j < 3; j++) {
-                System.out.print("|" + mappingTable.getSign(new Cell(i, j)) + " ");
-            }
-            System.out.println("|");
-        }
-        System.out.println("----------");
+    @FunctionalInterface
+    private interface PrintTable {
+        String getPrintTable(int i, int j);
     }
 
 
