@@ -17,6 +17,7 @@
 package academy.devonline.tictactoe.component.move.computer.strategy;
 
 import academy.devonline.tictactoe.model.GameTable;
+import academy.devonline.tictactoe.model.Sign;
 
 /**
  * @author Maksym Horodniuk
@@ -24,5 +25,5 @@ import academy.devonline.tictactoe.model.GameTable;
  * tic-tac-toe
  */
 public interface ComputerMoveStrategy {
-    boolean tryToMakeMove(final GameTable gameTable);
+    boolean tryToMakeMove(final GameTable gameTable, Sign sign);
 }

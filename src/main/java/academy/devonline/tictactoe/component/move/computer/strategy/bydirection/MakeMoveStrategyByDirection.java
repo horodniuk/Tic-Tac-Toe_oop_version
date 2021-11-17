@@ -25,9 +25,11 @@ import academy.devonline.tictactoe.model.Sign;
  * tic-tac-toe
  */
 public interface MakeMoveStrategyByDirection {
-    boolean tryToMakeMoveByDirection(Sign searchSymbol,
+    boolean tryToMakeMoveByDirection(Sign playerSign,
+                                     Sign searchSymbol,
                                      Sign skipSymbol,
                                      GameTable gameTable,
                                      int expectedSearchSymbolCount,
-                                     int expectedEmptyCount);
+                                     int expectedEmptyCount
+    );
 }

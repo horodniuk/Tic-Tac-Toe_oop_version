@@ -21,7 +21,6 @@ import academy.devonline.tictactoe.model.GameTable;
 import academy.devonline.tictactoe.model.Sign;
 
 import static academy.devonline.tictactoe.model.Sign.EMPTY;
-import static academy.devonline.tictactoe.model.Sign.O;
 
 /**
  * @author Maksym Horodniuk
@@ -30,7 +29,7 @@ import static academy.devonline.tictactoe.model.Sign.O;
  */
 public class MakeMoveStrategyByDirectionDiagonal2 implements MakeMoveStrategyByDirection {
     @Override
-    public boolean tryToMakeMoveByDirection(final Sign searchSymbol, final Sign skipSymbol, final GameTable gameTable, final int expectedSearchSymbolCount, final int expectedEmptyCount) {
+    public boolean tryToMakeMoveByDirection(Sign playerSign, final Sign searchSymbol, final Sign skipSymbol, final GameTable gameTable, final int expectedSearchSymbolCount, final int expectedEmptyCount) {
         for (int i = 0; i < 1; i++) {
             int backUpwards = 2;
             int mooveIndex = 0;
@@ -55,7 +54,7 @@ public class MakeMoveStrategyByDirectionDiagonal2 implements MakeMoveStrategyByD
                 }
             }
             if (count == expectedSearchSymbolCount && empty == expectedEmptyCount) {
-                gameTable.setSign(new Cell(mooveIndexSecond, mooveIndex), O);
+                gameTable.setSign(new Cell(mooveIndexSecond, mooveIndex), playerSign);
                 return true;
             }
         }

@@ -22,10 +22,9 @@ import academy.devonline.tictactoe.component.move.Move;
 import academy.devonline.tictactoe.component.move.user.mapping.MappingTable;
 import academy.devonline.tictactoe.model.Cell;
 import academy.devonline.tictactoe.model.GameTable;
+import academy.devonline.tictactoe.model.Sign;
 
 import java.util.Scanner;
-
-import static academy.devonline.tictactoe.model.Sign.X;
 
 /**
  * @author devonline
@@ -49,11 +48,11 @@ public class UserMove implements Move {
     }
 
     @Override
-    public void make(final GameTable gameTable) {
+    public void make(final GameTable gameTable, Sign sign) {
         while (true) {
             final Cell cell = tryGetUserCell();
             if (gameTable.isEmpty(cell)) {
-                gameTable.setSign(cell, X);
+                gameTable.setSign(cell, sign);
                 return;
             } else {
                 dataPrinter.printNotEmptyCell();

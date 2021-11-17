@@ -16,13 +16,14 @@
 
 package academy.devonline.tictactoe.component;
 
-import academy.devonline.tictactoe.component.move.Move;
 import academy.devonline.tictactoe.component.move.computer.ComputerMove;
 import academy.devonline.tictactoe.component.move.user.UserMove;
 import academy.devonline.tictactoe.component.move.user.mapping.MappingTable;
 import academy.devonline.tictactoe.model.GameTable;
+import academy.devonline.tictactoe.model.Player;
 
-import java.util.Random;
+import static academy.devonline.tictactoe.model.Sign.O;
+import static academy.devonline.tictactoe.model.Sign.X;
 
 /**
  * @author devonline
@@ -61,36 +62,30 @@ public class Game {
 
         final GameTable gameTable = new GameTable();
         dataPrinter.printGameTable(mappingTable);
-        if (new Random().nextBoolean()) {
+       /* if (new Random().nextBoolean()) {
             computerMove.make(gameTable);
             dataPrinter.printGameTable(gameTable);
-        }
+        }*/
 
-        final Move[] moves = {userMove, computerMove};
+        final Player[] players = {new Player(O, userMove, "USER"),
+                new Player(X, computerMove, "COMPUTER")};
         while (true) {
 
-            for (final Move move : moves) {
-                move.make(gameTable);
+            for (Player player : players) {
+                player.makeMove(gameTable);
                 dataPrinter.printGameTable(gameTable);
-                if (move instanceof UserMove) {
-                    if (winnerVerifier.isUserWin(gameTable)) {
-                        dataPrinter.printUserWin();
-                        dataPrinter.printGameOver();
-                        return;
-                    }
-                } else {
-                    if (winnerVerifier.isComputerWin(gameTable)) {
-                        dataPrinter.printComputerWin();
-                        dataPrinter.printGameOver();
-                        return;
-                    }
+                if (winnerVerifier.isWin(gameTable, player)) {
+                    dataPrinter.printWinner(player.getName());
+                    dataPrinter.printGameOver();
+                    return;
+                }
+                if (cellVerifier.allCellsFilled(gameTable)) {
+                    dataPrinter.printDraw();
+                    break;
                 }
             }
-            if (cellVerifier.allCellsFilled(gameTable)) {
-                dataPrinter.printDraw();
-                break;
-            }
         }
+
 
     }
 }

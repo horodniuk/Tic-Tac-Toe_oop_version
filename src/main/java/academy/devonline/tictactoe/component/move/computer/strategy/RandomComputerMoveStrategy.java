@@ -18,10 +18,9 @@ package academy.devonline.tictactoe.component.move.computer.strategy;
 
 import academy.devonline.tictactoe.model.Cell;
 import academy.devonline.tictactoe.model.GameTable;
+import academy.devonline.tictactoe.model.Sign;
 
 import java.util.Random;
-
-import static academy.devonline.tictactoe.model.Sign.O;
 
 /**
  * @author Maksym Horodniuk
@@ -31,14 +30,14 @@ import static academy.devonline.tictactoe.model.Sign.O;
 public class RandomComputerMoveStrategy implements ComputerMoveStrategy {
 
     @Override
-    public boolean tryToMakeMove(final GameTable gameTable) {
+    public boolean tryToMakeMove(final GameTable gameTable, Sign sign) {
         final Random random = new Random();
         while (true) {
             final int row = random.nextInt(3);
             final int col = random.nextInt(3);
             final Cell randomCell = new Cell(row, col);
             if (gameTable.isEmpty(randomCell)) {
-                gameTable.setSign(randomCell, O);
+                gameTable.setSign(randomCell, sign);
                 return true;
             }
         }

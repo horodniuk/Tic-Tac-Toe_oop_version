@@ -20,6 +20,7 @@ package academy.devonline.tictactoe.component.move.computer;
 import academy.devonline.tictactoe.component.move.Move;
 import academy.devonline.tictactoe.component.move.computer.strategy.*;
 import academy.devonline.tictactoe.model.GameTable;
+import academy.devonline.tictactoe.model.Sign;
 
 /**
  * @author devonline
@@ -36,9 +37,9 @@ public class ComputerMove implements Move {
     };
 
     @Override
-    public void make(final GameTable gameTable) {
+    public void make(final GameTable gameTable, Sign sign) {
         for (final ComputerMoveStrategy strategy : strategies) {
-            if (strategy.tryToMakeMove(gameTable)) {
+            if (strategy.tryToMakeMove(gameTable, sign)) {
                 return;
             }
         }

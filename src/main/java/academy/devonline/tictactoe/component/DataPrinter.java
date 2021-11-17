@@ -65,12 +65,16 @@ public class DataPrinter {
         System.out.println("Can't make a move, because the cell is not free! Try again!");
     }
 
-    public void printUserWin() {
+/*    public void printUserWin() {
         System.out.println("YOU WIN!");
-    }
+    }*/
 
-    public void printComputerWin() {
+   /* public void printComputerWin() {
         System.out.println("COMPUTER WIN!");
+    }*/
+
+    public void printWinner(String player) {
+        System.out.println(player + " WIN!");
     }
 
     public void printDraw() {
