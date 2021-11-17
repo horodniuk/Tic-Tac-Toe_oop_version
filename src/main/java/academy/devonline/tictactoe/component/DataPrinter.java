@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package main.java.academy.devonline.tictactoe.component;
+package academy.devonline.tictactoe.component;
 
-import main.java.academy.devonline.tictactoe.component.move.user.mapping.MappingTable;
-import main.java.academy.devonline.tictactoe.model.Cell;
-import main.java.academy.devonline.tictactoe.model.GameTable;
+import academy.devonline.tictactoe.component.move.user.mapping.MappingTable;
+import academy.devonline.tictactoe.model.Cell;
+import academy.devonline.tictactoe.model.GameTable;
 
 /**
  * @author devonline
- * @link http://devonline.main.java.devonline.academy/java
+ * @link http://devonline.devonline.academy/java
  * tic-tac-toe
  */
 public class DataPrinter {

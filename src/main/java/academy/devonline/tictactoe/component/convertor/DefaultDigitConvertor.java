@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package main.java.academy.devonline.tictactoe.component.convertor;
+package academy.devonline.tictactoe.component.convertor;
 
-import main.java.academy.devonline.tictactoe.component.move.user.mapping.MappingTable;
-import main.java.academy.devonline.tictactoe.model.Cell;
+import academy.devonline.tictactoe.component.move.user.mapping.MappingTable;
+import academy.devonline.tictactoe.model.Cell;
 
 
 /**
  * @author Maksym Horodniuk
- * @link http://devonline.main.java.devonline.academy/java
+ * @link http://devonline.devonline.academy/java
  * tic-tac-toe
  */
 public class DefaultDigitConvertor implements DigitConvertor {

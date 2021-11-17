@@ -14,22 +14,22 @@
  * limitations under the License.
  */
 
-package main.java.academy.devonline.tictactoe;
+package academy.devonline.tictactoe;
 
-import main.java.academy.devonline.tictactoe.component.CellVerifier;
-import main.java.academy.devonline.tictactoe.component.DataPrinter;
-import main.java.academy.devonline.tictactoe.component.Game;
-import main.java.academy.devonline.tictactoe.component.WinnerVerifier;
-import main.java.academy.devonline.tictactoe.component.convertor.DefaultDigitConvertor;
-import main.java.academy.devonline.tictactoe.component.convertor.DigitConvertor;
-import main.java.academy.devonline.tictactoe.component.move.computer.ComputerMove;
-import main.java.academy.devonline.tictactoe.component.move.user.UserMove;
-import main.java.academy.devonline.tictactoe.component.move.user.mapping.DesktopMappingTable;
-import main.java.academy.devonline.tictactoe.component.move.user.mapping.MappingTable;
+import academy.devonline.tictactoe.component.CellVerifier;
+import academy.devonline.tictactoe.component.DataPrinter;
+import academy.devonline.tictactoe.component.Game;
+import academy.devonline.tictactoe.component.WinnerVerifier;
+import academy.devonline.tictactoe.component.convertor.DefaultDigitConvertor;
+import academy.devonline.tictactoe.component.convertor.DigitConvertor;
+import academy.devonline.tictactoe.component.move.computer.ComputerMove;
+import academy.devonline.tictactoe.component.move.user.UserMove;
+import academy.devonline.tictactoe.component.move.user.mapping.DesktopMappingTable;
+import academy.devonline.tictactoe.component.move.user.mapping.MappingTable;
 
 /**
  * @author devonline
- * @link http://devonline.main.java.devonline.academy/java
+ * @link http://devonline.devonline.academy/java
  * tic-tac-toe
  */
 public final class Launcher {

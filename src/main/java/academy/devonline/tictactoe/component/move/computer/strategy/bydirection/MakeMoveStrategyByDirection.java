@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package main.java.academy.devonline.tictactoe.component.move.computer.strategy.bydirection;
+package academy.devonline.tictactoe.component.move.computer.strategy.bydirection;
 
-import main.java.academy.devonline.tictactoe.model.GameTable;
+import academy.devonline.tictactoe.model.GameTable;
 
 /**
  * @author Maksym Horodniuk
- * @link http://devonline.main.java.devonline.academy/java
+ * @link http://devonline.devonline.academy/java
  * tic-tac-toe
  */
 public interface MakeMoveStrategyByDirection {

@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package main.java.academy.devonline.tictactoe.component.move.computer;
+package academy.devonline.tictactoe.component.move.computer;
 
 
-import main.java.academy.devonline.tictactoe.component.move.computer.strategy.*;
-import main.java.academy.devonline.tictactoe.model.GameTable;
+import academy.devonline.tictactoe.component.move.computer.strategy.*;
+import academy.devonline.tictactoe.model.GameTable;
 
 /**
  * @author devonline
- * @link http://devonline.main.java.devonline.academy/java
+ * @link http://devonline.devonline.academy/java
  * tic-tac-toe
  */
 public class ComputerMove {

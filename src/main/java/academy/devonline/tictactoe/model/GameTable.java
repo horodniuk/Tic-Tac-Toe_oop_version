@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package main.java.academy.devonline.tictactoe.model;
+package academy.devonline.tictactoe.model;
 
 import java.util.Arrays;
 
 /**
  * @author devonline
- * @link http://devonline.main.java.devonline.academy/java
+ * @link http://devonline.devonline.academy/java
  * tic-tac-toe
  */
 public class GameTable {

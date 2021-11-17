@@ -14,18 +14,18 @@
  * limitations under the License.
  */
 
-package main.java.academy.devonline.tictactoe.component;
+package academy.devonline.tictactoe.component;
 
-import main.java.academy.devonline.tictactoe.component.move.computer.ComputerMove;
-import main.java.academy.devonline.tictactoe.component.move.user.UserMove;
-import main.java.academy.devonline.tictactoe.component.move.user.mapping.MappingTable;
-import main.java.academy.devonline.tictactoe.model.GameTable;
+import academy.devonline.tictactoe.component.move.computer.ComputerMove;
+import academy.devonline.tictactoe.component.move.user.UserMove;
+import academy.devonline.tictactoe.component.move.user.mapping.MappingTable;
+import academy.devonline.tictactoe.model.GameTable;
 
 import java.util.Random;
 
 /**
  * @author devonline
- * @link http://devonline.main.java.devonline.academy/java
+ * @link http://devonline.devonline.academy/java
  * tic-tac-toe
  */
 public class Game {

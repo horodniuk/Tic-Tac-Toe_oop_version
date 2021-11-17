@@ -14,19 +14,19 @@
  * limitations under the License.
  */
 
-package main.java.academy.devonline.tictactoe.component.move.user;
+package academy.devonline.tictactoe.component.move.user;
 
-import main.java.academy.devonline.tictactoe.component.DataPrinter;
-import main.java.academy.devonline.tictactoe.component.convertor.DigitConvertor;
-import main.java.academy.devonline.tictactoe.component.move.user.mapping.MappingTable;
-import main.java.academy.devonline.tictactoe.model.Cell;
-import main.java.academy.devonline.tictactoe.model.GameTable;
+import academy.devonline.tictactoe.component.DataPrinter;
+import academy.devonline.tictactoe.component.convertor.DigitConvertor;
+import academy.devonline.tictactoe.component.move.user.mapping.MappingTable;
+import academy.devonline.tictactoe.model.Cell;
+import academy.devonline.tictactoe.model.GameTable;
 
 import java.util.Scanner;
 
 /**
  * @author devonline
- * @link http://devonline.main.java.devonline.academy/java
+ * @link http://devonline.devonline.academy/java
  * tic-tac-toe
  */
 public class UserMove {

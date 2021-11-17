@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package main.java.academy.devonline.tictactoe.component.move.user.mapping;
+package academy.devonline.tictactoe.component.move.user.mapping;
 
 /**
  * @author Maksym Horodniuk
- * @link http://devonline.main.java.devonline.academy/java
+ * @link http://devonline.devonline.academy/java
  * tic-tac-toe
  */
 public class DesktopMappingTable extends MappingTable {
