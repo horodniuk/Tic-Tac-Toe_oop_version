@@ -16,6 +16,7 @@
 
 package academy.devonline.tictactoe.component;
 
+import academy.devonline.tictactoe.component.move.Move;
 import academy.devonline.tictactoe.component.move.computer.ComputerMove;
 import academy.devonline.tictactoe.component.move.user.UserMove;
 import academy.devonline.tictactoe.component.move.user.mapping.MappingTable;
@@ -64,28 +65,32 @@ public class Game {
             computerMove.make(gameTable);
             dataPrinter.printGameTable(gameTable);
         }
+
+        final Move[] moves = {userMove, computerMove};
         while (true) {
-            userMove.make(gameTable);
-            dataPrinter.printGameTable(gameTable);
-            if (winnerVerifier.isUserWin(gameTable)) {
-                dataPrinter.printUserWin();
-                break;
-            }
-            if (cellVerifier.allCellsFilled(gameTable)) {
-                dataPrinter.printDraw();
-                break;
-            }
-            computerMove.make(gameTable);
-            dataPrinter.printGameTable(gameTable);
-            if (winnerVerifier.isComputerWin(gameTable)) {
-                dataPrinter.printComputerWin();
-                break;
+
+            for (final Move move : moves) {
+                move.make(gameTable);
+                dataPrinter.printGameTable(gameTable);
+                if (move instanceof UserMove) {
+                    if (winnerVerifier.isUserWin(gameTable)) {
+                        dataPrinter.printUserWin();
+                        dataPrinter.printGameOver();
+                        return;
+                    }
+                } else {
+                    if (winnerVerifier.isComputerWin(gameTable)) {
+                        dataPrinter.printComputerWin();
+                        dataPrinter.printGameOver();
+                        return;
+                    }
+                }
             }
             if (cellVerifier.allCellsFilled(gameTable)) {
                 dataPrinter.printDraw();
                 break;
             }
         }
-        dataPrinter.printGameOver();
+
     }
 }

@@ -17,6 +17,7 @@
 package academy.devonline.tictactoe.component.move.computer;
 
 
+import academy.devonline.tictactoe.component.move.Move;
 import academy.devonline.tictactoe.component.move.computer.strategy.*;
 import academy.devonline.tictactoe.model.GameTable;
 
@@ -25,7 +26,7 @@ import academy.devonline.tictactoe.model.GameTable;
  * @link http://devonline.devonline.academy/java
  * tic-tac-toe
  */
-public class ComputerMove {
+public class ComputerMove implements Move {
     private final ComputerMoveStrategy[] strategies = {
             new TryToWinComputerMoveStrategy(),
             new TryPreventUserWinComputerMoveStrategy(),
@@ -34,6 +35,7 @@ public class ComputerMove {
             new RandomComputerMoveStrategy(),
     };
 
+    @Override
     public void make(final GameTable gameTable) {
         for (final ComputerMoveStrategy strategy : strategies) {
             if (strategy.tryToMakeMove(gameTable)) {

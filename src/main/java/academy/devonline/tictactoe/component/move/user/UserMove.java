@@ -18,6 +18,7 @@ package academy.devonline.tictactoe.component.move.user;
 
 import academy.devonline.tictactoe.component.DataPrinter;
 import academy.devonline.tictactoe.component.convertor.DigitConvertor;
+import academy.devonline.tictactoe.component.move.Move;
 import academy.devonline.tictactoe.component.move.user.mapping.MappingTable;
 import academy.devonline.tictactoe.model.Cell;
 import academy.devonline.tictactoe.model.GameTable;
@@ -31,7 +32,7 @@ import static academy.devonline.tictactoe.model.Sign.X;
  * @link http://devonline.devonline.academy/java
  * tic-tac-toe
  */
-public class UserMove {
+public class UserMove implements Move {
 
     private final MappingTable mappingTable;
 
@@ -47,6 +48,7 @@ public class UserMove {
         this.digitConvertor = digitConvertor;
     }
 
+    @Override
     public void make(final GameTable gameTable) {
         while (true) {
             final Cell cell = tryGetUserCell();
