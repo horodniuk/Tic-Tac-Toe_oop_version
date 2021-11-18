@@ -16,28 +16,13 @@
 
 package academy.devonline.tictactoe.component;
 
-import academy.devonline.tictactoe.component.move.user.mapping.MappingTable;
-import academy.devonline.tictactoe.model.GameTable;
+import academy.devonline.tictactoe.model.Cell;
 
 /**
  * @author Maksym Horodniuk
  * @link http://devonline.academy/java
  * tic-tac-toe
  */
-public interface DataPrinter {
-    void printInstructionMessage();
-
-    void printInputInstruction();
-
-    void printNotEmptyCell();
-
-    void printWinner(String player);
-
-    void printGameOver();
-
-
-    void printGameTable(GameTable gameTable);
-
-    void printGameTable(MappingTable mappingTable);
-
+public interface UserInputReader {
+    Cell tryGetUserCell();
 }

@@ -17,6 +17,8 @@
 package academy.devonline.tictactoe.model;
 
 import academy.devonline.tictactoe.component.*;
+import academy.devonline.tictactoe.component.console.ConsoleDataPrinter;
+import academy.devonline.tictactoe.component.console.ConsoleUserInputReader;
 import academy.devonline.tictactoe.component.convertor.DefaultDigitConvertor;
 import academy.devonline.tictactoe.component.convertor.DigitConvertor;
 import academy.devonline.tictactoe.component.move.computer.ComputerMove;
@@ -48,24 +50,26 @@ public class GameFactory {
 
     public Game create() {
         final MappingTable mappingTable = new DesktopMappingTable();
-        final DataPrinter dataPrinter = new DataPrinter();
+        final ConsoleDataPrinter consoleDataPrinter = new ConsoleDataPrinter();
         final DigitConvertor digitConvertor = new DefaultDigitConvertor();
-
+        final UserInputReader userInputReader = new ConsoleUserInputReader(mappingTable, consoleDataPrinter, digitConvertor);
         final Player player1;
+
+
         if (player1Type == USER) {
-            player1 = new Player(X, new UserMove(mappingTable, dataPrinter, digitConvertor), "USER1");
+            player1 = new Player(X, new UserMove(consoleDataPrinter, userInputReader), "USER1");
         } else {
             player1 = new Player(X, new ComputerMove(), "COMP1");
         }
         final Player player2;
         if (player2Type == USER) {
-            player2 = new Player(O, new UserMove(mappingTable, dataPrinter, digitConvertor), "USER2");
+            player2 = new Player(O, new UserMove(consoleDataPrinter, userInputReader), "USER2");
         } else {
             player2 = new Player(O, new ComputerMove(), "COMP2");
         }
         final boolean canSecondPlayerMakeFirstMove = player1Type != player2Type;
         return new Game(
-                dataPrinter,
+                consoleDataPrinter,
                 //  new Player(O, new UserMove(mappingTable, dataPrinter, digitConvertor),  "I"),
                 //  new Player(X, new UserMove(mappingTable, dataPrinter, digitConvertor),  "I2"),
                 // new Player(X, new ComputerMove(), "COMP1"),

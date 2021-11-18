@@ -16,6 +16,7 @@
 
 package academy.devonline.tictactoe.component;
 
+import academy.devonline.tictactoe.component.console.ConsoleDataPrinter;
 import academy.devonline.tictactoe.component.move.user.mapping.MappingTable;
 import academy.devonline.tictactoe.model.GameTable;
 import academy.devonline.tictactoe.model.Player;
@@ -28,7 +29,7 @@ import java.util.Random;
  * tic-tac-toe
  */
 public class Game {
-    private final DataPrinter dataPrinter;
+    private final ConsoleDataPrinter consoleDataPrinter;
 
     private Player player1;
     private Player player2;
@@ -45,7 +46,7 @@ public class Game {
 
     private final boolean canSecondPlayerMakeFirstMove;
 
-    public Game(final DataPrinter dataPrinter,
+    public Game(final ConsoleDataPrinter consoleDataPrinter,
                 final Player player1,
                 final Player player2,
         /*        final ComputerMove computerMove,
@@ -54,7 +55,7 @@ public class Game {
                 final CellVerifier cellVerifier,
                 final MappingTable mappingTable,
                 final boolean canSecondPlayerMakeFirstMove) {
-        this.dataPrinter = dataPrinter;
+        this.consoleDataPrinter = consoleDataPrinter;
         this.player1 = player1;
         this.player2 = player2;
 /*        this.computerMove = computerMove;
@@ -80,13 +81,13 @@ public class Game {
     }*/
 
     public void play() {
-        dataPrinter.printInstructionMessage();
+        consoleDataPrinter.printInstructionMessage();
 
         final GameTable gameTable = new GameTable();
-        dataPrinter.printGameTable(mappingTable);
+        consoleDataPrinter.printGameTable(mappingTable);
         if (canSecondPlayerMakeFirstMove && new Random().nextBoolean()) {
             player2.makeMove(gameTable);
-            dataPrinter.printGameTable(gameTable);
+            consoleDataPrinter.printGameTable(gameTable);
         }
 
         final Player[] players = {player1, player2};
@@ -94,14 +95,14 @@ public class Game {
 
             for (Player player : players) {
                 player.makeMove(gameTable);
-                dataPrinter.printGameTable(gameTable);
+                consoleDataPrinter.printGameTable(gameTable);
                 if (winnerVerifier.isWin(gameTable, player)) {
-                    dataPrinter.printWinner(player.getName());
-                    dataPrinter.printGameOver();
+                    consoleDataPrinter.printWinner(player.getName());
+                    consoleDataPrinter.printGameOver();
                     return;
                 }
                 if (cellVerifier.allCellsFilled(gameTable)) {
-                    dataPrinter.printDraw();
+                    consoleDataPrinter.printDraw();
                     break;
                 }
             }

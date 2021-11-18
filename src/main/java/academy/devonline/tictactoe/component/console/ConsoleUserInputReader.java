@@ -14,46 +14,38 @@
  * limitations under the License.
  */
 
-package academy.devonline.tictactoe.component.move.user;
+package academy.devonline.tictactoe.component.console;
 
 import academy.devonline.tictactoe.component.UserInputReader;
-import academy.devonline.tictactoe.component.console.ConsoleDataPrinter;
-import academy.devonline.tictactoe.component.move.Move;
+import academy.devonline.tictactoe.component.convertor.DigitConvertor;
+import academy.devonline.tictactoe.component.move.user.mapping.MappingTable;
 import academy.devonline.tictactoe.model.Cell;
-import academy.devonline.tictactoe.model.GameTable;
-import academy.devonline.tictactoe.model.Sign;
+
+import java.util.Scanner;
 
 /**
- * @author devonline
- * @link http://devonline.devonline.academy/java
+ * @author Maksym Horodniuk
+ * @link http://devonline.academy/java
  * tic-tac-toe
  */
-public class UserMove implements Move {
+public class ConsoleUserInputReader implements UserInputReader {
 
+    private final MappingTable mappingTable;
 
     private final ConsoleDataPrinter consoleDataPrinter;
 
-    private final UserInputReader userInputReader;
+    private final DigitConvertor digitConvertor;
 
-    public UserMove(final ConsoleDataPrinter consoleDataPrinter, final UserInputReader userInputReader) {
+    public ConsoleUserInputReader(final MappingTable mappingTable,
+                                  final ConsoleDataPrinter consoleDataPrinter,
+                                  final DigitConvertor digitConvertor) {
+        this.mappingTable = mappingTable;
         this.consoleDataPrinter = consoleDataPrinter;
-        this.userInputReader = userInputReader;
+        this.digitConvertor = digitConvertor;
     }
 
     @Override
-    public void make(final GameTable gameTable, Sign sign) {
-        while (true) {
-            final Cell cell = userInputReader.tryGetUserCell();
-            if (gameTable.isEmpty(cell)) {
-                gameTable.setSign(cell, sign);
-                return;
-            } else {
-                consoleDataPrinter.printNotEmptyCell();
-            }
-        }
-    }
-
-  /*  private Cell tryGetUserCell() {
+    public Cell tryGetUserCell() {
         while (true) {
             consoleDataPrinter.printInputInstruction();
             final String userInput = new Scanner(System.in).nextLine();
@@ -64,7 +56,5 @@ public class UserMove implements Move {
                 }
             }
         }
-    }*/
-
-
+    }
 }
