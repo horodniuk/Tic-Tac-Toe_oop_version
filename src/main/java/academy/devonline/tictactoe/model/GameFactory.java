@@ -16,10 +16,7 @@
 
 package academy.devonline.tictactoe.model;
 
-import academy.devonline.tictactoe.component.CellVerifier;
-import academy.devonline.tictactoe.component.DataPrinter;
-import academy.devonline.tictactoe.component.Game;
-import academy.devonline.tictactoe.component.WinnerVerifier;
+import academy.devonline.tictactoe.component.*;
 import academy.devonline.tictactoe.component.convertor.DefaultDigitConvertor;
 import academy.devonline.tictactoe.component.convertor.DigitConvertor;
 import academy.devonline.tictactoe.component.move.computer.ComputerMove;
@@ -27,7 +24,6 @@ import academy.devonline.tictactoe.component.move.user.UserMove;
 import academy.devonline.tictactoe.component.move.user.mapping.DesktopMappingTable;
 import academy.devonline.tictactoe.component.move.user.mapping.MappingTable;
 
-import static academy.devonline.tictactoe.model.PlayerType.COMPUTER;
 import static academy.devonline.tictactoe.model.PlayerType.USER;
 import static academy.devonline.tictactoe.model.Sign.O;
 import static academy.devonline.tictactoe.model.Sign.X;
@@ -38,36 +34,15 @@ import static academy.devonline.tictactoe.model.Sign.X;
  * tic-tac-toe
  */
 public class GameFactory {
-    PlayerType player1Type;
+    private final PlayerType player1Type;
 
-    PlayerType player2Type;
+    private final PlayerType player2Type;
 
     public GameFactory(final String[] args) {
-        PlayerType player1Type = null;
-        PlayerType player2Type = null;
-        for (final String arg : args) {
-            if (USER.name().equalsIgnoreCase(arg) || COMPUTER.name().equalsIgnoreCase(arg)) {
-                if (player1Type == null) {
-                    player1Type = PlayerType.valueOf(arg.toUpperCase());
-                } else if (player2Type == null) {
-                    player2Type = PlayerType.valueOf(arg.toUpperCase());
-                } else {
-                    System.err.println("Unsupported command line argument: '" + arg + "'");
-                }
-            } else {
-                System.err.println("Unsupported command line argument: '" + arg + "'");
-            }
-        }
-        if (player1Type == null) {
-            this.player1Type = USER;
-            this.player2Type = COMPUTER;
-        } else if (player2Type == null) {
-            this.player1Type = USER;
-            this.player2Type = player1Type;
-        } else {
-            this.player1Type = player1Type;
-            this.player2Type = player2Type;
-        }
+        final CommandLineArgumentParser.PlayerTypes playerTypes =
+                new CommandLineArgumentParser(args).parse();
+        this.player1Type = playerTypes.getPlayer1Type();
+        this.player2Type = playerTypes.getPlayer2Type();
     }
 
 
