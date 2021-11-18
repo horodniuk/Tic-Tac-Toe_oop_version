@@ -14,21 +14,14 @@
  * limitations under the License.
  */
 
-package academy.devonline.tictactoe;
-
-import academy.devonline.tictactoe.component.Game;
-import academy.devonline.tictactoe.model.GameFactory;
+package academy.devonline.tictactoe.model;
 
 /**
- * @author devonline
- * @link http://devonline.devonline.academy/java
+ * @author Maksym Horodniuk
+ * @link http://devonline.academy/java
  * tic-tac-toe
  */
-public final class Launcher {
-    public static void main(final String[] args) {
-        final GameFactory gameFactory = new GameFactory(args);
-        final Game game = gameFactory.create();
-        game.play();
-    }
-
+public enum PlayerType {
+    USER,
+    COMPUTER;
 }
