@@ -16,14 +16,11 @@
 
 package academy.devonline.tictactoe.component;
 
-import academy.devonline.tictactoe.component.move.computer.ComputerMove;
-import academy.devonline.tictactoe.component.move.user.UserMove;
 import academy.devonline.tictactoe.component.move.user.mapping.MappingTable;
 import academy.devonline.tictactoe.model.GameTable;
 import academy.devonline.tictactoe.model.Player;
 
-import static academy.devonline.tictactoe.model.Sign.O;
-import static academy.devonline.tictactoe.model.Sign.X;
+import java.util.Random;
 
 /**
  * @author devonline
@@ -33,9 +30,12 @@ import static academy.devonline.tictactoe.model.Sign.X;
 public class Game {
     private final DataPrinter dataPrinter;
 
-    private final ComputerMove computerMove;
+    private Player player1;
+    private Player player2;
 
-    private final UserMove userMove;
+/*    private final ComputerMove computerMove;
+
+    private final UserMove userMove;*/
 
     private final WinnerVerifier winnerVerifier;
 
@@ -43,7 +43,29 @@ public class Game {
 
     private final MappingTable mappingTable;
 
+    private final boolean canSecondPlayerMakeFirstMove;
+
     public Game(final DataPrinter dataPrinter,
+                final Player player1,
+                final Player player2,
+        /*        final ComputerMove computerMove,
+                final UserMove userMove,*/
+                final WinnerVerifier winnerVerifier,
+                final CellVerifier cellVerifier,
+                final MappingTable mappingTable,
+                final boolean canSecondPlayerMakeFirstMove) {
+        this.dataPrinter = dataPrinter;
+        this.player1 = player1;
+        this.player2 = player2;
+/*        this.computerMove = computerMove;
+        this.userMove = userMove;*/
+        this.winnerVerifier = winnerVerifier;
+        this.cellVerifier = cellVerifier;
+        this.mappingTable = mappingTable;
+        this.canSecondPlayerMakeFirstMove = canSecondPlayerMakeFirstMove;
+    }
+
+    /*  public Game(final DataPrinter dataPrinter,
                 final ComputerMove computerMove,
                 final UserMove userMove,
                 final WinnerVerifier winnerVerifier,
@@ -55,20 +77,19 @@ public class Game {
         this.winnerVerifier = winnerVerifier;
         this.cellVerifier = cellVerifier;
         this.mappingTable = mappingTable;
-    }
+    }*/
 
     public void play() {
         dataPrinter.printInstructionMessage();
 
         final GameTable gameTable = new GameTable();
         dataPrinter.printGameTable(mappingTable);
-       /* if (new Random().nextBoolean()) {
-            computerMove.make(gameTable);
+        if (canSecondPlayerMakeFirstMove && new Random().nextBoolean()) {
+            player2.makeMove(gameTable);
             dataPrinter.printGameTable(gameTable);
-        }*/
+        }
 
-        final Player[] players = {new Player(O, userMove, "USER"),
-                new Player(X, computerMove, "COMPUTER")};
+        final Player[] players = {player1, player2};
         while (true) {
 
             for (Player player : players) {

@@ -23,9 +23,12 @@ import academy.devonline.tictactoe.component.WinnerVerifier;
 import academy.devonline.tictactoe.component.convertor.DefaultDigitConvertor;
 import academy.devonline.tictactoe.component.convertor.DigitConvertor;
 import academy.devonline.tictactoe.component.move.computer.ComputerMove;
-import academy.devonline.tictactoe.component.move.user.UserMove;
 import academy.devonline.tictactoe.component.move.user.mapping.DesktopMappingTable;
 import academy.devonline.tictactoe.component.move.user.mapping.MappingTable;
+import academy.devonline.tictactoe.model.Player;
+
+import static academy.devonline.tictactoe.model.Sign.O;
+import static academy.devonline.tictactoe.model.Sign.X;
 
 /**
  * @author devonline
@@ -39,12 +42,14 @@ public final class Launcher {
         final DigitConvertor digitConvertor = new DefaultDigitConvertor();
         Game game = new Game(
                 dataPrinter,
-                new ComputerMove(),
-                new UserMove(mappingTable, dataPrinter, digitConvertor),
+                //  new Player(O, new UserMove(mappingTable, dataPrinter, digitConvertor),  "I"),
+                //  new Player(X, new UserMove(mappingTable, dataPrinter, digitConvertor),  "I2"),
+                new Player(X, new ComputerMove(), "COMP"),
+                new Player(O, new ComputerMove(), "COMP2"),
                 new WinnerVerifier(),
                 new CellVerifier(),
-                mappingTable
-        );
+                mappingTable,
+                true);
         game.play();
     }
 
