@@ -16,8 +16,8 @@
 
 package academy.devonline.tictactoe.component.move.user;
 
+import academy.devonline.tictactoe.component.DataPrinter;
 import academy.devonline.tictactoe.component.UserInputReader;
-import academy.devonline.tictactoe.component.console.ConsoleDataPrinter;
 import academy.devonline.tictactoe.component.move.Move;
 import academy.devonline.tictactoe.model.Cell;
 import academy.devonline.tictactoe.model.GameTable;
@@ -31,12 +31,12 @@ import academy.devonline.tictactoe.model.Sign;
 public class UserMove implements Move {
 
 
-    private final ConsoleDataPrinter consoleDataPrinter;
+    private final DataPrinter dataPrinter;
 
     private final UserInputReader userInputReader;
 
-    public UserMove(final ConsoleDataPrinter consoleDataPrinter, final UserInputReader userInputReader) {
-        this.consoleDataPrinter = consoleDataPrinter;
+    public UserMove(final DataPrinter dataPrinter, final UserInputReader userInputReader) {
+        this.dataPrinter = dataPrinter;
         this.userInputReader = userInputReader;
     }
 
@@ -48,23 +48,10 @@ public class UserMove implements Move {
                 gameTable.setSign(cell, sign);
                 return;
             } else {
-                consoleDataPrinter.printNotEmptyCell();
+                dataPrinter.printNotEmptyCell();
             }
         }
     }
-
-  /*  private Cell tryGetUserCell() {
-        while (true) {
-            consoleDataPrinter.printInputInstruction();
-            final String userInput = new Scanner(System.in).nextLine();
-            if (userInput.length() == 1) {
-                final char digit = userInput.charAt(0);
-                if (digit >= '1' && digit <= '9') {
-                    return digitConvertor.convertDigitToCell(mappingTable, digit);
-                }
-            }
-        }
-    }*/
 
 
 }

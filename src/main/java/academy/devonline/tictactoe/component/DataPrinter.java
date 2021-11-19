@@ -35,6 +35,7 @@ public interface DataPrinter {
 
     void printGameOver();
 
+    void printDraw();
 
     void printGameTable(GameTable gameTable);
 

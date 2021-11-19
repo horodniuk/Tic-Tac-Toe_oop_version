@@ -49,37 +49,34 @@ public class GameFactory {
 
 
     public Game create() {
+        // final GameWindow gameWindow = new GameWindow();
+        final DataPrinter dataPrinter = new ConsoleDataPrinter();
+
         final MappingTable mappingTable = new DesktopMappingTable();
-        final ConsoleDataPrinter consoleDataPrinter = new ConsoleDataPrinter();
         final DigitConvertor digitConvertor = new DefaultDigitConvertor();
-        final UserInputReader userInputReader = new ConsoleUserInputReader(mappingTable, consoleDataPrinter, digitConvertor);
+        final UserInputReader userInputReader = new ConsoleUserInputReader(mappingTable, dataPrinter, digitConvertor);
+
+
         final Player player1;
-
-
         if (player1Type == USER) {
-            player1 = new Player(X, new UserMove(consoleDataPrinter, userInputReader), "USER1");
+            player1 = new Player(X, new UserMove(dataPrinter, userInputReader), "USER");
         } else {
-            player1 = new Player(X, new ComputerMove(), "COMP1");
+            player1 = new Player(X, new ComputerMove(), "COMPUTER");
         }
         final Player player2;
         if (player2Type == USER) {
-            player2 = new Player(O, new UserMove(consoleDataPrinter, userInputReader), "USER2");
+            player2 = new Player(O, new UserMove(dataPrinter, userInputReader), "USER");
         } else {
-            player2 = new Player(O, new ComputerMove(), "COMP2");
+            player2 = new Player(O, new ComputerMove(), "COMPUTER");
         }
         final boolean canSecondPlayerMakeFirstMove = player1Type != player2Type;
         return new Game(
-                consoleDataPrinter,
-                //  new Player(O, new UserMove(mappingTable, dataPrinter, digitConvertor),  "I"),
-                //  new Player(X, new UserMove(mappingTable, dataPrinter, digitConvertor),  "I2"),
-                // new Player(X, new ComputerMove(), "COMP1"),
-                // new Player(O, new ComputerMove(), "COMP2"),
+                dataPrinter,
                 player1,
                 player2,
                 new WinnerVerifier(),
                 new CellVerifier(),
-                mappingTable,
-                true);
+                canSecondPlayerMakeFirstMove);
     }
 
 

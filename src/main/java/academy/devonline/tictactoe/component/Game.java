@@ -16,8 +16,7 @@
 
 package academy.devonline.tictactoe.component;
 
-import academy.devonline.tictactoe.component.console.ConsoleDataPrinter;
-import academy.devonline.tictactoe.component.move.user.mapping.MappingTable;
+import academy.devonline.tictactoe.component.move.user.mapping.DesktopMappingTable;
 import academy.devonline.tictactoe.model.GameTable;
 import academy.devonline.tictactoe.model.Player;
 
@@ -29,65 +28,40 @@ import java.util.Random;
  * tic-tac-toe
  */
 public class Game {
-    private final ConsoleDataPrinter consoleDataPrinter;
-
+    private final DataPrinter dataPrinter;
     private Player player1;
     private Player player2;
-
-/*    private final ComputerMove computerMove;
-
-    private final UserMove userMove;*/
-
     private final WinnerVerifier winnerVerifier;
-
     private final CellVerifier cellVerifier;
-
-    private final MappingTable mappingTable;
+    //  private final MappingTable mappingTable;
 
     private final boolean canSecondPlayerMakeFirstMove;
 
-    public Game(final ConsoleDataPrinter consoleDataPrinter,
+    public Game(final DataPrinter dataPrinter,
                 final Player player1,
                 final Player player2,
-        /*        final ComputerMove computerMove,
-                final UserMove userMove,*/
                 final WinnerVerifier winnerVerifier,
                 final CellVerifier cellVerifier,
-                final MappingTable mappingTable,
+                //      final MappingTable mappingTable,
                 final boolean canSecondPlayerMakeFirstMove) {
-        this.consoleDataPrinter = consoleDataPrinter;
+        this.dataPrinter = dataPrinter;
         this.player1 = player1;
         this.player2 = player2;
-/*        this.computerMove = computerMove;
-        this.userMove = userMove;*/
         this.winnerVerifier = winnerVerifier;
         this.cellVerifier = cellVerifier;
-        this.mappingTable = mappingTable;
+        //   this.mappingTable = mappingTable;
         this.canSecondPlayerMakeFirstMove = canSecondPlayerMakeFirstMove;
     }
 
-    /*  public Game(final DataPrinter dataPrinter,
-                final ComputerMove computerMove,
-                final UserMove userMove,
-                final WinnerVerifier winnerVerifier,
-                final CellVerifier cellVerifier,
-                final MappingTable mappingTable) {
-        this.dataPrinter = dataPrinter;
-        this.computerMove = computerMove;
-        this.userMove = userMove;
-        this.winnerVerifier = winnerVerifier;
-        this.cellVerifier = cellVerifier;
-        this.mappingTable = mappingTable;
-    }*/
 
     public void play() {
-        consoleDataPrinter.printInstructionMessage();
-
+        dataPrinter.printInstructionMessage();
+        dataPrinter.printGameTable(new DesktopMappingTable());
         final GameTable gameTable = new GameTable();
-        consoleDataPrinter.printGameTable(mappingTable);
+        //   dataPrinter.printGameTable(mappingTable);
         if (canSecondPlayerMakeFirstMove && new Random().nextBoolean()) {
             player2.makeMove(gameTable);
-            consoleDataPrinter.printGameTable(gameTable);
+            dataPrinter.printGameTable(gameTable);
         }
 
         final Player[] players = {player1, player2};
@@ -95,15 +69,15 @@ public class Game {
 
             for (Player player : players) {
                 player.makeMove(gameTable);
-                consoleDataPrinter.printGameTable(gameTable);
+                dataPrinter.printGameTable(gameTable);
                 if (winnerVerifier.isWin(gameTable, player)) {
-                    consoleDataPrinter.printWinner(player.getName());
-                    consoleDataPrinter.printGameOver();
+                    dataPrinter.printWinner(player.getName());
+                    dataPrinter.printGameOver();
                     return;
                 }
                 if (cellVerifier.allCellsFilled(gameTable)) {
-                    consoleDataPrinter.printDraw();
-                    break;
+                    dataPrinter.printDraw();
+                    return;
                 }
             }
         }
