@@ -25,9 +25,9 @@ import academy.devonline.tictactoe.model.GameTable;
  * tic-tac-toe
  */
 public interface DataPrinter {
-    void printInstructionMessage();
+    void printInstructionMessage(MappingTable mappingTable);
 
-    void printInputInstruction();
+    void printInstructionInput();
 
     void printNotEmptyCell();
 
@@ -39,6 +39,5 @@ public interface DataPrinter {
 
     void printGameTable(GameTable gameTable);
 
-    void printGameTable(MappingTable mappingTable);
 
 }

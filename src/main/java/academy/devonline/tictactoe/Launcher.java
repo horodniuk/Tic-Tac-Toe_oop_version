@@ -30,5 +30,4 @@ public final class Launcher {
         final Game game = gameFactory.create();
         game.play();
     }
-
 }

@@ -48,7 +48,7 @@ public class ConsoleUserInputReader implements UserInputReader {
     @Override
     public Cell tryGetUserCell() {
         while (true) {
-            dataPrinter.printInputInstruction();
+            dataPrinter.printInstructionInput();
             final String userInput = new Scanner(System.in).nextLine();
             if (userInput.length() == 1) {
                 final char digit = userInput.charAt(0);

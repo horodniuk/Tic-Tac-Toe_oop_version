@@ -94,17 +94,15 @@ public class GameWindow extends JFrame implements DataPrinter, UserInputReader {
         setVisible(true);
     }
 
-
     @Override
-    public void printInstructionMessage() {
-        final String message = "Use the following mapping table to specify a cell using numbers from 1 to 9:";
-        JOptionPane.showMessageDialog(this, message, "Info", JOptionPane.INFORMATION_MESSAGE);
+    public void printInstructionInput() {
+        // do nothing
     }
 
+
     @Override
-    public void printInputInstruction() {
-        final String message = "Please type number between 1 and 9:";
-        JOptionPane.showMessageDialog(this, message, "Info", JOptionPane.INFORMATION_MESSAGE);
+    public void printInstructionMessage(MappingTable mappingTable) {
+        // do nothing
     }
 
     @Override
@@ -140,10 +138,7 @@ public class GameWindow extends JFrame implements DataPrinter, UserInputReader {
         }
     }
 
-    @Override
-    public void printGameTable(final MappingTable mappingTable) {
 
-    }
 
     @Override
     public Cell tryGetUserCell() {
@@ -159,7 +154,4 @@ public class GameWindow extends JFrame implements DataPrinter, UserInputReader {
     }
 
 
-   /* public static void main(String[] args) {
-        new GameWindow();
-    }*/
 }

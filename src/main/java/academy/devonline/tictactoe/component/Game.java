@@ -29,11 +29,10 @@ import java.util.Random;
  */
 public class Game {
     private final DataPrinter dataPrinter;
-    private Player player1;
-    private Player player2;
+    private final Player player1;
+    private final Player player2;
     private final WinnerVerifier winnerVerifier;
     private final CellVerifier cellVerifier;
-    //  private final MappingTable mappingTable;
 
     private final boolean canSecondPlayerMakeFirstMove;
 
@@ -53,8 +52,7 @@ public class Game {
 
 
     public void play() {
-        dataPrinter.printInstructionMessage();
-        dataPrinter.printGameTable(new DesktopMappingTable());
+        dataPrinter.printInstructionMessage(new DesktopMappingTable());
         final GameTable gameTable = new GameTable();
         if (canSecondPlayerMakeFirstMove && new Random().nextBoolean()) {
             player2.makeMove(gameTable);

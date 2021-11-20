@@ -32,9 +32,6 @@ public class ConsoleDataPrinter implements DataPrinter {
         print((i, j) -> String.valueOf(gameTable.getSign(new Cell(i, j))));
     }
 
-    public void printGameTable(MappingTable mappingTable) {
-        print((i, j) -> String.valueOf(mappingTable.getSign(new Cell(i, j))));
-    }
 
 
     private void print(PrintTable printTable) {
@@ -54,11 +51,14 @@ public class ConsoleDataPrinter implements DataPrinter {
     }
 
 
-    public void printInstructionMessage() {
+    public void printInstructionMessage(MappingTable mappingTable) {
         System.out.println("Use the following mapping table to specify a cell using numbers from 1 to 9:");
+        print((i, j) -> String.valueOf(mappingTable.getSign(new Cell(i, j))));
+
+
     }
 
-    public void printInputInstruction() {
+    public void printInstructionInput() {
         System.out.println("Please type number between 1 and 9:");
     }
 
