@@ -19,9 +19,6 @@ package academy.devonline.tictactoe.component.move.computer.strategy;
 import academy.devonline.tictactoe.model.game.GameTable;
 import academy.devonline.tictactoe.model.game.Sign;
 
-import static academy.devonline.tictactoe.model.game.Sign.O;
-import static academy.devonline.tictactoe.model.game.Sign.X;
-
 /**
  * @author Maksym Horodniuk
  * @link http://devonline.devonline.academy/java
@@ -31,14 +28,8 @@ public class TryPreventUserWinComputerMoveStrategy extends BaseComputerMoveStrat
 
     @Override
     public boolean tryToMakeMove(final GameTable gameTable, Sign sign) {
-        Sign opposerSign = null;
-        if (sign == X) {
-            opposerSign = O;
-        }
-        if (sign == O) {
-            opposerSign = X;
-        }
+        Sign opposerSign = sign.oppositeSign();
 
-        return tryToMakeMove(sign, opposerSign, sign, gameTable, 2, 1);
+        return tryToMakeMove(sign, opposerSign, gameTable, 2, 1);
     }
 }

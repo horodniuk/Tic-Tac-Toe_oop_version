@@ -138,7 +138,7 @@ public class GameWindow extends JFrame implements DataPrinter, UserInputReader, 
 
 
     @Override
-    public Cell tryGetUserCell() {
+    public Cell tryFreeCell() {
         synchronized (this) {
             try {
                 wait();

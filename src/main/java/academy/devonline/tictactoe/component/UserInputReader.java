@@ -24,5 +24,5 @@ import academy.devonline.tictactoe.model.game.Cell;
  * tic-tac-toe
  */
 public interface UserInputReader {
-    Cell tryGetUserCell();
+    Cell tryFreeCell();
 }

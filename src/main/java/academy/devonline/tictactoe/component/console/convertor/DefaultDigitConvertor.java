@@ -26,8 +26,14 @@ import academy.devonline.tictactoe.model.game.Cell;
  * tic-tac-toe
  */
 public class DefaultDigitConvertor implements DigitConvertor {
+    private final MappingTable mappingTable;
+
+    public DefaultDigitConvertor(final MappingTable mappingTable) {
+        this.mappingTable = mappingTable;
+    }
+
     @Override
-    public Cell convertDigitToCell(final MappingTable mappingTable, final char digit) {
+    public Cell convertDigitToCell(final char digit) {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if (mappingTable.getSign(new Cell(i, j)) == digit) {

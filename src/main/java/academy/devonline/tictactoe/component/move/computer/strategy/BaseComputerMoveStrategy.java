@@ -37,7 +37,6 @@ public class BaseComputerMoveStrategy {
     protected boolean tryToMakeMove(
             final Sign playerSign,
             final Sign searchSymbol,
-            final Sign skipSymbol,
             final GameTable gameTable,
             final int expectedSearchSymbolCount,
             final int expectedEmptyCount) {
@@ -46,7 +45,6 @@ public class BaseComputerMoveStrategy {
             if (makeMoveStrategyByDirection.tryToMakeMoveByDirection(
                     playerSign,
                     searchSymbol,
-                    skipSymbol,
                     gameTable,
                     expectedSearchSymbolCount,
                     expectedEmptyCount

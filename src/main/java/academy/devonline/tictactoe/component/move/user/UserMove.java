@@ -35,7 +35,8 @@ public class UserMove implements Move {
 
     private final UserInputReader userInputReader;
 
-    public UserMove(final DataPrinter dataPrinter, final UserInputReader userInputReader) {
+    public UserMove(final DataPrinter dataPrinter,
+                    final UserInputReader userInputReader) {
         this.dataPrinter = dataPrinter;
         this.userInputReader = userInputReader;
     }
@@ -43,7 +44,7 @@ public class UserMove implements Move {
     @Override
     public void make(final GameTable gameTable, Sign sign) {
         while (true) {
-            final Cell cell = userInputReader.tryGetUserCell();
+            final Cell cell = userInputReader.tryFreeCell();
             if (gameTable.isEmpty(cell)) {
                 gameTable.setSign(cell, sign);
                 return;

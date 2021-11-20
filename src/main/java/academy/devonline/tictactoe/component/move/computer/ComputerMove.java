@@ -31,8 +31,8 @@ public class ComputerMove implements Move {
     private final ComputerMoveStrategy[] strategies = {
             new TryToWinComputerMoveStrategy(),
             new TryPreventUserWinComputerMoveStrategy(),
-            new TryToMakeMoveToCenterComputerMoveStrategy(),
             new TryToMakeNearestMoveComputerMoveStrategy(),
+            new TryToMakeMoveToCenterComputerMoveStrategy(),
             new RandomComputerMoveStrategy(),
     };
 

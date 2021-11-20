@@ -16,7 +16,6 @@
 
 package academy.devonline.tictactoe.component.console.convertor;
 
-import academy.devonline.tictactoe.component.move.user.mapping.MappingTable;
 import academy.devonline.tictactoe.model.game.Cell;
 
 /**
@@ -25,5 +24,5 @@ import academy.devonline.tictactoe.model.game.Cell;
  * tic-tac-toe
  */
 public interface DigitConvertor {
-    Cell convertDigitToCell(MappingTable mappingTable, char digit);
+    Cell convertDigitToCell(char digit);
 }

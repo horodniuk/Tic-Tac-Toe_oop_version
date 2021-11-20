@@ -19,7 +19,6 @@ package academy.devonline.tictactoe.component.console;
 import academy.devonline.tictactoe.component.DataPrinter;
 import academy.devonline.tictactoe.component.UserInputReader;
 import academy.devonline.tictactoe.component.console.convertor.DigitConvertor;
-import academy.devonline.tictactoe.component.move.user.mapping.MappingTable;
 import academy.devonline.tictactoe.model.game.Cell;
 
 import java.util.Scanner;
@@ -31,29 +30,26 @@ import java.util.Scanner;
  */
 public class ConsoleUserInputReader implements UserInputReader {
 
-    private final MappingTable mappingTable;
 
     private final DataPrinter dataPrinter;
 
     private final DigitConvertor digitConvertor;
 
-    public ConsoleUserInputReader(final MappingTable mappingTable,
-                                  final DataPrinter dataPrinter,
+    public ConsoleUserInputReader(final DataPrinter dataPrinter,
                                   final DigitConvertor digitConvertor) {
-        this.mappingTable = mappingTable;
         this.dataPrinter = dataPrinter;
         this.digitConvertor = digitConvertor;
     }
 
     @Override
-    public Cell tryGetUserCell() {
+    public Cell tryFreeCell() {
         while (true) {
             dataPrinter.printInstructionInput();
             final String userInput = new Scanner(System.in).nextLine();
             if (userInput.length() == 1) {
                 final char digit = userInput.charAt(0);
                 if (digit >= '1' && digit <= '9') {
-                    return digitConvertor.convertDigitToCell(mappingTable, digit);
+                    return digitConvertor.convertDigitToCell(digit);
                 }
             }
         }

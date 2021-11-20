@@ -19,9 +19,6 @@ package academy.devonline.tictactoe.component.move.computer.strategy;
 import academy.devonline.tictactoe.model.game.GameTable;
 import academy.devonline.tictactoe.model.game.Sign;
 
-import static academy.devonline.tictactoe.model.game.Sign.O;
-import static academy.devonline.tictactoe.model.game.Sign.X;
-
 /**
  * @author Maksym Horodniuk
  * @link http://devonline.devonline.academy/java
@@ -30,13 +27,7 @@ import static academy.devonline.tictactoe.model.game.Sign.X;
 public class TryToMakeNearestMoveComputerMoveStrategy extends BaseComputerMoveStrategy implements ComputerMoveStrategy {
     @Override
     public boolean tryToMakeMove(final GameTable gameTable, Sign sign) {
-        Sign opposerSign = null;
-        if (sign == X) {
-            opposerSign = O;
-        }
-        if (sign == O) {
-            opposerSign = X;
-        }
-        return tryToMakeMove(sign, sign, opposerSign, gameTable, 1, 2);
+
+        return tryToMakeMove(sign, sign, gameTable, 1, 2);
     }
 }

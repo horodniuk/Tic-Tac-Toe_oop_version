@@ -29,21 +29,19 @@ import static academy.devonline.tictactoe.model.game.Sign.EMPTY;
  */
 public class MakeMoveStrategyByDirectionVertical implements MakeMoveStrategyByDirection {
     @Override
-    public boolean tryToMakeMoveByDirection(Sign playerSign, final Sign searchSymbol, final Sign skipSymbol, final GameTable gameTable, final int expectedSearchSymbolCount, final int expectedEmptyCount) {
+    public boolean tryToMakeMoveByDirection(Sign playerSign, final Sign searchSymbol, final GameTable gameTable, final int expectedSearchSymbolCount, final int expectedEmptyCount) {
         for (int i = 0; i < 3; i++) {
             int mooveIndex = 0;
             int empty = 0;
             int count = 0;
             for (int j = 0; j < 3; j++) {
-                if (gameTable.getSign(new Cell(j, i)) == skipSymbol) {
-                    break;
-                }
                 if (gameTable.getSign(new Cell(j, i)) == EMPTY) {
                     mooveIndex = j;
                     empty++;
-                }
-                if (gameTable.getSign(new Cell(j, i)) == searchSymbol) {
+                } else if (gameTable.getSign(new Cell(j, i)) == searchSymbol) {
                     count++;
+                } else {
+                    break;
                 }
             }
             if (count == expectedSearchSymbolCount && empty == expectedEmptyCount) {

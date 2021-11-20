@@ -70,9 +70,9 @@ public class GameFactory {
             gameOverHandling = gameWindow;
         } else {
             final MappingTable mappingTable = new DesktopMappingTable();
-            final DigitConvertor digitConvertor = new DefaultDigitConvertor();
+            final DigitConvertor digitConvertor = new DefaultDigitConvertor(mappingTable);
             dataPrinter = new ConsoleDataPrinter();
-            userInputReader = new ConsoleUserInputReader(mappingTable, dataPrinter, digitConvertor);
+            userInputReader = new ConsoleUserInputReader(dataPrinter, digitConvertor);
             gameOverHandling = new ConsolePrintGameOver(dataPrinter);
         }
 

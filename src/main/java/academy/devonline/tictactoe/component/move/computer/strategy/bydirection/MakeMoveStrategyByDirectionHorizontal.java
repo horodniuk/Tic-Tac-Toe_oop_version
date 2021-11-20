@@ -28,7 +28,7 @@ import academy.devonline.tictactoe.model.game.Sign;
 public class MakeMoveStrategyByDirectionHorizontal implements MakeMoveStrategyByDirection {
 
     @Override
-    public boolean tryToMakeMoveByDirection(Sign playerSign, final Sign searchSymbol, final Sign skipSymbol, final GameTable gameTable, final int expectedSearchSymbolCount, final int expectedEmptyCount) {
+    public boolean tryToMakeMoveByDirection(Sign playerSign, final Sign searchSymbol, final GameTable gameTable, final int expectedSearchSymbolCount, final int expectedEmptyCount) {
         for (int i = 0; i < 3; i++) {
             int mooveIndex = 0;
             int empty = 0;
@@ -36,15 +36,13 @@ public class MakeMoveStrategyByDirectionHorizontal implements MakeMoveStrategyBy
             for (int j = 0; j < 3; j++) {
                 final Cell cell = new Cell(i, j);
                 final Sign realSign = gameTable.getSign(cell);
-                if (realSign == skipSymbol) {
-                    break;
-                }
                 if (gameTable.isEmpty(cell)) {
                     mooveIndex = j;
                     empty++;
-                }
-                if (realSign == searchSymbol) {
+                } else if (realSign == searchSymbol) {
                     count++;
+                } else {
+                    break;
                 }
             }
             if (count == expectedSearchSymbolCount && empty == expectedEmptyCount) {
@@ -52,7 +50,6 @@ public class MakeMoveStrategyByDirectionHorizontal implements MakeMoveStrategyBy
                 return true;
             }
         }
-
         return false;
     }
 }
