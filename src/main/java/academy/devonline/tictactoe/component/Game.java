@@ -42,14 +42,12 @@ public class Game {
                 final Player player2,
                 final WinnerVerifier winnerVerifier,
                 final CellVerifier cellVerifier,
-                //      final MappingTable mappingTable,
                 final boolean canSecondPlayerMakeFirstMove) {
         this.dataPrinter = dataPrinter;
         this.player1 = player1;
         this.player2 = player2;
         this.winnerVerifier = winnerVerifier;
         this.cellVerifier = cellVerifier;
-        //   this.mappingTable = mappingTable;
         this.canSecondPlayerMakeFirstMove = canSecondPlayerMakeFirstMove;
     }
 
@@ -58,7 +56,6 @@ public class Game {
         dataPrinter.printInstructionMessage();
         dataPrinter.printGameTable(new DesktopMappingTable());
         final GameTable gameTable = new GameTable();
-        //   dataPrinter.printGameTable(mappingTable);
         if (canSecondPlayerMakeFirstMove && new Random().nextBoolean()) {
             player2.makeMove(gameTable);
             dataPrinter.printGameTable(gameTable);

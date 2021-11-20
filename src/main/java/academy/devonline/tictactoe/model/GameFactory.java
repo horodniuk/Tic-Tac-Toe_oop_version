@@ -25,10 +25,12 @@ import academy.devonline.tictactoe.component.move.computer.ComputerMove;
 import academy.devonline.tictactoe.component.move.user.UserMove;
 import academy.devonline.tictactoe.component.move.user.mapping.DesktopMappingTable;
 import academy.devonline.tictactoe.component.move.user.mapping.MappingTable;
+import academy.devonline.tictactoe.component.swing.GameWindow;
 
 import static academy.devonline.tictactoe.model.PlayerType.USER;
 import static academy.devonline.tictactoe.model.Sign.O;
 import static academy.devonline.tictactoe.model.Sign.X;
+import static academy.devonline.tictactoe.model.UserInterface.GUI;
 
 /**
  * @author Maksym Horodniuk
@@ -39,22 +41,35 @@ public class GameFactory {
     private final PlayerType player1Type;
 
     private final PlayerType player2Type;
+    private final UserInterface userInterface;
 
     public GameFactory(final String[] args) {
-        final CommandLineArgumentParser.PlayerTypes playerTypes =
+        final CommandLineArgumentParser.ComandLineArguments comandLineArguments =
                 new CommandLineArgumentParser(args).parse();
-        this.player1Type = playerTypes.getPlayer1Type();
-        this.player2Type = playerTypes.getPlayer2Type();
+        player1Type = comandLineArguments.getPlayer1Type();
+        player2Type = comandLineArguments.getPlayer2Type();
+        userInterface = comandLineArguments.getUserInterface();
     }
 
 
     public Game create() {
-        // final GameWindow gameWindow = new GameWindow();
-        final DataPrinter dataPrinter = new ConsoleDataPrinter();
 
-        final MappingTable mappingTable = new DesktopMappingTable();
-        final DigitConvertor digitConvertor = new DefaultDigitConvertor();
-        final UserInputReader userInputReader = new ConsoleUserInputReader(mappingTable, dataPrinter, digitConvertor);
+        final DataPrinter dataPrinter;
+
+        //  final MappingTable mappingTable = new DesktopMappingTable();
+        // final DigitConvertor digitConvertor = new DefaultDigitConvertor();
+        final UserInputReader userInputReader; //new ConsoleUserInputReader(mappingTable, dataPrinter, digitConvertor);
+
+        if (userInterface == GUI) {
+            final GameWindow gameWindow = new GameWindow();
+            dataPrinter = gameWindow;
+            userInputReader = gameWindow;
+        } else {
+            final MappingTable mappingTable = new DesktopMappingTable();
+            final DigitConvertor digitConvertor = new DefaultDigitConvertor();
+            dataPrinter = new ConsoleDataPrinter();
+            userInputReader = new ConsoleUserInputReader(mappingTable, dataPrinter, digitConvertor);
+        }
 
 
         final Player player1;
