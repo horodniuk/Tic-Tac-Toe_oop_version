@@ -18,6 +18,7 @@ package academy.devonline.tictactoe.model;
 
 import academy.devonline.tictactoe.component.*;
 import academy.devonline.tictactoe.component.console.ConsoleDataPrinter;
+import academy.devonline.tictactoe.component.console.ConsolePrintGameOver;
 import academy.devonline.tictactoe.component.console.ConsoleUserInputReader;
 import academy.devonline.tictactoe.component.convertor.DefaultDigitConvertor;
 import academy.devonline.tictactoe.component.convertor.DigitConvertor;
@@ -42,6 +43,7 @@ public class GameFactory {
 
     private final PlayerType player2Type;
     private final UserInterface userInterface;
+    private GameOverHandling gameOverHandling;
 
     public GameFactory(final String[] args) {
         final CommandLineArgumentParser.ComandLineArguments comandLineArguments =
@@ -55,20 +57,19 @@ public class GameFactory {
     public Game create() {
 
         final DataPrinter dataPrinter;
-
-        //  final MappingTable mappingTable = new DesktopMappingTable();
-        // final DigitConvertor digitConvertor = new DefaultDigitConvertor();
-        final UserInputReader userInputReader; //new ConsoleUserInputReader(mappingTable, dataPrinter, digitConvertor);
+        final UserInputReader userInputReader;
 
         if (userInterface == GUI) {
             final GameWindow gameWindow = new GameWindow();
             dataPrinter = gameWindow;
             userInputReader = gameWindow;
+            gameOverHandling = gameWindow;
         } else {
             final MappingTable mappingTable = new DesktopMappingTable();
             final DigitConvertor digitConvertor = new DefaultDigitConvertor();
             dataPrinter = new ConsoleDataPrinter();
             userInputReader = new ConsoleUserInputReader(mappingTable, dataPrinter, digitConvertor);
+            gameOverHandling = new ConsolePrintGameOver(dataPrinter);
         }
 
 
@@ -91,6 +92,7 @@ public class GameFactory {
                 player2,
                 new WinnerVerifier(),
                 new CellVerifier(),
+                gameOverHandling,
                 canSecondPlayerMakeFirstMove);
     }
 

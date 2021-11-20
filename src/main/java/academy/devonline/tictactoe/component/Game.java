@@ -33,6 +33,7 @@ public class Game {
     private final Player player2;
     private final WinnerVerifier winnerVerifier;
     private final CellVerifier cellVerifier;
+    private final GameOverHandling gameOverHandling;
 
     private final boolean canSecondPlayerMakeFirstMove;
 
@@ -41,12 +42,14 @@ public class Game {
                 final Player player2,
                 final WinnerVerifier winnerVerifier,
                 final CellVerifier cellVerifier,
+                final GameOverHandling gameOverHandling,
                 final boolean canSecondPlayerMakeFirstMove) {
         this.dataPrinter = dataPrinter;
         this.player1 = player1;
         this.player2 = player2;
         this.winnerVerifier = winnerVerifier;
         this.cellVerifier = cellVerifier;
+        this.gameOverHandling = gameOverHandling;
         this.canSecondPlayerMakeFirstMove = canSecondPlayerMakeFirstMove;
     }
 
@@ -67,11 +70,12 @@ public class Game {
                 dataPrinter.printGameTable(gameTable);
                 if (winnerVerifier.isWin(gameTable, player)) {
                     dataPrinter.printWinner(player.getName());
-                    dataPrinter.printGameOver();
+                    gameOverHandling.gameOver();
                     return;
                 }
                 if (cellVerifier.allCellsFilled(gameTable)) {
                     dataPrinter.printDraw();
+                    gameOverHandling.gameOver();
                     return;
                 }
             }

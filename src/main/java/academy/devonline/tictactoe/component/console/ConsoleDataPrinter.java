@@ -32,8 +32,6 @@ public class ConsoleDataPrinter implements DataPrinter {
         print((i, j) -> String.valueOf(gameTable.getSign(new Cell(i, j))));
     }
 
-
-
     private void print(PrintTable printTable) {
         for (int i = 0; i < 3; i++) {
             System.out.println("----------");
@@ -71,11 +69,15 @@ public class ConsoleDataPrinter implements DataPrinter {
         System.out.println(player + " WIN!");
     }
 
+    @Override
     public void printDraw() {
         System.out.println("Sorry, DRAW!");
     }
 
-    public void printGameOver() {
-        System.out.println("GAME OVER!");
+    @Override
+    public void printInfoMessage(final String message) {
+        System.out.println(message);
     }
+
+
 }

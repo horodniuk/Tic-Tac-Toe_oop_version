@@ -14,30 +14,25 @@
  * limitations under the License.
  */
 
-package academy.devonline.tictactoe.component;
+package academy.devonline.tictactoe.component.console;
 
-import academy.devonline.tictactoe.component.move.user.mapping.MappingTable;
-import academy.devonline.tictactoe.model.GameTable;
+import academy.devonline.tictactoe.component.DataPrinter;
+import academy.devonline.tictactoe.component.GameOverHandling;
 
 /**
  * @author Maksym Horodniuk
  * @link http://devonline.academy/java
  * tic-tac-toe
  */
-public interface DataPrinter {
-    void printInstructionMessage(MappingTable mappingTable);
+public class ConsolePrintGameOver implements GameOverHandling {
+    private final DataPrinter dataPrinter;
 
-    void printInstructionInput();
+    public ConsolePrintGameOver(final DataPrinter dataPrinter) {
+        this.dataPrinter = dataPrinter;
+    }
 
-    void printNotEmptyCell();
-
-    void printWinner(String player);
-
-    void printDraw();
-
-    void printInfoMessage(String message);
-
-    void printGameTable(GameTable gameTable);
-
-
+    @Override
+    public void gameOver() {
+        dataPrinter.printInfoMessage("Game Over");
+    }
 }
