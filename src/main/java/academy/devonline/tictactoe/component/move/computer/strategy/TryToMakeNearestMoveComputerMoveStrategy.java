@@ -16,11 +16,11 @@
 
 package academy.devonline.tictactoe.component.move.computer.strategy;
 
-import academy.devonline.tictactoe.model.GameTable;
-import academy.devonline.tictactoe.model.Sign;
+import academy.devonline.tictactoe.model.game.GameTable;
+import academy.devonline.tictactoe.model.game.Sign;
 
-import static academy.devonline.tictactoe.model.Sign.O;
-import static academy.devonline.tictactoe.model.Sign.X;
+import static academy.devonline.tictactoe.model.game.Sign.O;
+import static academy.devonline.tictactoe.model.game.Sign.X;
 
 /**
  * @author Maksym Horodniuk

@@ -14,42 +14,28 @@
  * limitations under the License.
  */
 
-package academy.devonline.tictactoe.model;
+package academy.devonline.tictactoe.component.console.convertor;
 
-import academy.devonline.tictactoe.component.move.Move;
+import academy.devonline.tictactoe.component.move.user.mapping.MappingTable;
+import academy.devonline.tictactoe.model.game.Cell;
+
 
 /**
  * @author Maksym Horodniuk
- * @link http://devonline.academy/java
+ * @link http://devonline.devonline.academy/java
  * tic-tac-toe
  */
-public class Player {
-    private final Sign sign;
-
-    private final Move move;
-    private final String name;
-
-
-    public Player(final Sign sign, final Move move, final String name) {
-        this.sign = sign;
-        this.move = move;
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Sign getSign() {
-        return sign;
-    }
-
-    public Move getMove() {
-        return move;
-    }
-
-    public void makeMove(final GameTable gameTable) {
-        move.make(gameTable, sign);
+public class DefaultDigitConvertor implements DigitConvertor {
+    @Override
+    public Cell convertDigitToCell(final MappingTable mappingTable, final char digit) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (mappingTable.getSign(new Cell(i, j)) == digit) {
+                    return new Cell(i, j);
+                }
+            }
+        }
+        return null;
     }
 
 

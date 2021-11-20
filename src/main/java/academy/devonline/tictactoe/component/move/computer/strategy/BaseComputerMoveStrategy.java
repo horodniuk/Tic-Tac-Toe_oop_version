@@ -17,8 +17,8 @@
 package academy.devonline.tictactoe.component.move.computer.strategy;
 
 import academy.devonline.tictactoe.component.move.computer.strategy.bydirection.*;
-import academy.devonline.tictactoe.model.GameTable;
-import academy.devonline.tictactoe.model.Sign;
+import academy.devonline.tictactoe.model.game.GameTable;
+import academy.devonline.tictactoe.model.game.Sign;
 
 /**
  * @author Maksym Horodniuk

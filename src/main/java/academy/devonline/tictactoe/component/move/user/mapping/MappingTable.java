@@ -1,6 +1,6 @@
 package academy.devonline.tictactoe.component.move.user.mapping;
 
-import academy.devonline.tictactoe.model.GameTableChar;
+import academy.devonline.tictactoe.model.game.GameTableChar;
 
 /**
  * @author devonline

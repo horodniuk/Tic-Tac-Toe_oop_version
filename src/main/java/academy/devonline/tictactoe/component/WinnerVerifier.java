@@ -16,9 +16,9 @@
 
 package academy.devonline.tictactoe.component;
 
-import academy.devonline.tictactoe.component.winner.strategy.*;
-import academy.devonline.tictactoe.model.GameTable;
-import academy.devonline.tictactoe.model.Player;
+import academy.devonline.tictactoe.component.move.computer.strategy.winner.*;
+import academy.devonline.tictactoe.model.game.GameTable;
+import academy.devonline.tictactoe.model.game.Player;
 
 /**
  * @author devonline

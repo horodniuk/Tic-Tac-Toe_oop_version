@@ -14,45 +14,47 @@
  * limitations under the License.
  */
 
-package academy.devonline.tictactoe.model;
+package academy.devonline.tictactoe.model.game;
 
 import java.util.Arrays;
 
+import static academy.devonline.tictactoe.model.game.Sign.EMPTY;
+
 /**
- * @author Maksym Horodniuk
- * @link http://devonline.academy/java
+ * @author devonline
+ * @link http://devonline.devonline.academy/java
  * tic-tac-toe
  */
-public class GameTableChar {
-    private final char[][] table;
+public class GameTable {
+    private final Sign[][] table;
 
-    protected GameTableChar(final char[][] table) {
+    protected GameTable(final Sign[][] table) {
         this.table = table;
     }
 
-    public GameTableChar() {
-        table = new char[][]{
-                {' ', ' ', ' '},
-                {' ', ' ', ' '},
-                {' ', ' ', ' '}
+    public GameTable() {
+        table = new Sign[][]{
+                {EMPTY, EMPTY, EMPTY},
+                {EMPTY, EMPTY, EMPTY},
+                {EMPTY, EMPTY, EMPTY}
         };
     }
 
     public boolean isEmpty(final Cell cell) {
-        return table[cell.getRow()][cell.getCol()] == ' ';
+        return table[cell.getRow()][cell.getCol()] == EMPTY;
     }
 
-    public char getSign(final Cell cell) {
+    public Sign getSign(final Cell cell) {
         return table[cell.getRow()][cell.getCol()];
     }
 
-    public void setSign(final Cell cell, final char sign) {
+    public void setSign(final Cell cell, final Sign sign) {
         table[cell.getRow()][cell.getCol()] = sign;
     }
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("GameTableChar{");
+        final StringBuilder sb = new StringBuilder("GameTable{");
         sb.append("table=");
         for (int i = 0; i < table.length; i++) {
             sb.append(Arrays.toString(table[i]));

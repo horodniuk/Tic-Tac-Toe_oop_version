@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package academy.devonline.tictactoe.component.winner.strategy;
+package academy.devonline.tictactoe.component.move.computer.strategy.winner;
 
-import academy.devonline.tictactoe.model.Cell;
-import academy.devonline.tictactoe.model.GameTable;
-import academy.devonline.tictactoe.model.Sign;
+import academy.devonline.tictactoe.model.game.Cell;
+import academy.devonline.tictactoe.model.game.GameTable;
+import academy.devonline.tictactoe.model.game.Sign;
 
 /**
  * @author Maksym Horodniuk

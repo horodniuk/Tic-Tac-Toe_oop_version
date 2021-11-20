@@ -14,24 +14,28 @@
  * limitations under the License.
  */
 
-package academy.devonline.tictactoe.model;
+package academy.devonline.tictactoe;
 
 import academy.devonline.tictactoe.component.*;
+import academy.devonline.tictactoe.component.config.CommandLineArgumentParser;
 import academy.devonline.tictactoe.component.console.ConsoleDataPrinter;
 import academy.devonline.tictactoe.component.console.ConsolePrintGameOver;
 import academy.devonline.tictactoe.component.console.ConsoleUserInputReader;
-import academy.devonline.tictactoe.component.convertor.DefaultDigitConvertor;
-import academy.devonline.tictactoe.component.convertor.DigitConvertor;
+import academy.devonline.tictactoe.component.console.convertor.DefaultDigitConvertor;
+import academy.devonline.tictactoe.component.console.convertor.DigitConvertor;
 import academy.devonline.tictactoe.component.move.computer.ComputerMove;
 import academy.devonline.tictactoe.component.move.user.UserMove;
 import academy.devonline.tictactoe.component.move.user.mapping.DesktopMappingTable;
 import academy.devonline.tictactoe.component.move.user.mapping.MappingTable;
 import academy.devonline.tictactoe.component.swing.GameWindow;
+import academy.devonline.tictactoe.model.config.PlayerType;
+import academy.devonline.tictactoe.model.config.UserInterface;
+import academy.devonline.tictactoe.model.game.Player;
 
-import static academy.devonline.tictactoe.model.PlayerType.USER;
-import static academy.devonline.tictactoe.model.Sign.O;
-import static academy.devonline.tictactoe.model.Sign.X;
-import static academy.devonline.tictactoe.model.UserInterface.GUI;
+import static academy.devonline.tictactoe.model.config.PlayerType.USER;
+import static academy.devonline.tictactoe.model.config.UserInterface.GUI;
+import static academy.devonline.tictactoe.model.game.Sign.O;
+import static academy.devonline.tictactoe.model.game.Sign.X;
 
 /**
  * @author Maksym Horodniuk

@@ -14,24 +14,23 @@
  * limitations under the License.
  */
 
-package academy.devonline.tictactoe.model;
+package academy.devonline.tictactoe.component.move.computer.strategy.winner;
+
+import academy.devonline.tictactoe.model.game.Cell;
+import academy.devonline.tictactoe.model.game.GameTable;
+import academy.devonline.tictactoe.model.game.Sign;
 
 /**
  * @author Maksym Horodniuk
- * @link http://devonline.academy/java
+ * @link http://devonline.devonline.academy/java
  * tic-tac-toe
  */
-public enum Sign {
-    EMPTY,
-    X,
-    O;
+public class WinnerVerifierStrategyByDiagonal implements WinnerVerifierStrategy {
 
     @Override
-    public String toString() {
-        if (this == EMPTY) {
-            return " ";
-        } else {
-            return name();
-        }
+    public boolean isWinner(final GameTable gameTable, final Sign sign) {
+        return gameTable.getSign(new Cell(0, 0)) == gameTable.getSign(new Cell(1, 1)) &&
+                gameTable.getSign(new Cell(1, 1)) == gameTable.getSign(new Cell(2, 2)) &&
+                gameTable.getSign(new Cell(2, 2)) == sign;
     }
 }

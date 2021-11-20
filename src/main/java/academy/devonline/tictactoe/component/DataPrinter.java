@@ -17,7 +17,7 @@
 package academy.devonline.tictactoe.component;
 
 import academy.devonline.tictactoe.component.move.user.mapping.MappingTable;
-import academy.devonline.tictactoe.model.GameTable;
+import academy.devonline.tictactoe.model.game.GameTable;
 
 /**
  * @author Maksym Horodniuk

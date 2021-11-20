@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package academy.devonline.tictactoe.model;
+package academy.devonline.tictactoe.model.config;
 
 /**
  * @author Maksym Horodniuk
  * @link http://devonline.academy/java
  * tic-tac-toe
  */
-public enum PlayerType {
-    USER,
-    COMPUTER;
+public enum UserInterface {
+    GUI,
+    CONSOLE
 }

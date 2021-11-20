@@ -18,9 +18,9 @@ package academy.devonline.tictactoe.component.console;
 
 import academy.devonline.tictactoe.component.DataPrinter;
 import academy.devonline.tictactoe.component.UserInputReader;
-import academy.devonline.tictactoe.component.convertor.DigitConvertor;
+import academy.devonline.tictactoe.component.console.convertor.DigitConvertor;
 import academy.devonline.tictactoe.component.move.user.mapping.MappingTable;
-import academy.devonline.tictactoe.model.Cell;
+import academy.devonline.tictactoe.model.game.Cell;
 
 import java.util.Scanner;
 

@@ -14,29 +14,24 @@
  * limitations under the License.
  */
 
-package academy.devonline.tictactoe.component.convertor;
-
-import academy.devonline.tictactoe.component.move.user.mapping.MappingTable;
-import academy.devonline.tictactoe.model.Cell;
-
+package academy.devonline.tictactoe.model.game;
 
 /**
  * @author Maksym Horodniuk
- * @link http://devonline.devonline.academy/java
+ * @link http://devonline.academy/java
  * tic-tac-toe
  */
-public class DefaultDigitConvertor implements DigitConvertor {
+public enum Sign {
+    EMPTY,
+    X,
+    O;
+
     @Override
-    public Cell convertDigitToCell(final MappingTable mappingTable, final char digit) {
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (mappingTable.getSign(new Cell(i, j)) == digit) {
-                    return new Cell(i, j);
-                }
-            }
+    public String toString() {
+        if (this == EMPTY) {
+            return " ";
+        } else {
+            return name();
         }
-        return null;
     }
-
-
 }

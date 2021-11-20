@@ -14,16 +14,43 @@
  * limitations under the License.
  */
 
-package academy.devonline.tictactoe.component.move;
+package academy.devonline.tictactoe.model.game;
 
-import academy.devonline.tictactoe.model.game.GameTable;
-import academy.devonline.tictactoe.model.game.Sign;
+import academy.devonline.tictactoe.component.move.Move;
 
 /**
  * @author Maksym Horodniuk
  * @link http://devonline.academy/java
  * tic-tac-toe
  */
-public interface Move {
-    void make(GameTable gameTable, Sign sign);
+public class Player {
+    private final Sign sign;
+
+    private final Move move;
+    private final String name;
+
+
+    public Player(final Sign sign, final Move move, final String name) {
+        this.sign = sign;
+        this.move = move;
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Sign getSign() {
+        return sign;
+    }
+
+    public Move getMove() {
+        return move;
+    }
+
+    public void makeMove(final GameTable gameTable) {
+        move.make(gameTable, sign);
+    }
+
+
 }

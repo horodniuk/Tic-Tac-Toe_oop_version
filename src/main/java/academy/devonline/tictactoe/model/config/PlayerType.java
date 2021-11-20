@@ -14,16 +14,14 @@
  * limitations under the License.
  */
 
-package academy.devonline.tictactoe.component.convertor;
-
-import academy.devonline.tictactoe.component.move.user.mapping.MappingTable;
-import academy.devonline.tictactoe.model.Cell;
+package academy.devonline.tictactoe.model.config;
 
 /**
  * @author Maksym Horodniuk
- * @link http://devonline.devonline.academy/java
+ * @link http://devonline.academy/java
  * tic-tac-toe
  */
-public interface DigitConvertor {
-    Cell convertDigitToCell(MappingTable mappingTable, char digit);
+public enum PlayerType {
+    USER,
+    COMPUTER
 }

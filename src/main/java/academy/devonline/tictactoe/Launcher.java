@@ -17,7 +17,6 @@
 package academy.devonline.tictactoe;
 
 import academy.devonline.tictactoe.component.Game;
-import academy.devonline.tictactoe.model.GameFactory;
 
 /**
  * @author devonline
