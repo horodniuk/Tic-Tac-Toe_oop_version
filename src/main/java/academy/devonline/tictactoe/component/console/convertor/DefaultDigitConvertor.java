@@ -19,6 +19,8 @@ package academy.devonline.tictactoe.component.console.convertor;
 import academy.devonline.tictactoe.component.move.user.mapping.MappingTable;
 import academy.devonline.tictactoe.model.game.Cell;
 
+import static java.lang.String.format;
+
 
 /**
  * @author Maksym Horodniuk
@@ -27,6 +29,7 @@ import academy.devonline.tictactoe.model.game.Cell;
  */
 public class DefaultDigitConvertor implements DigitConvertor {
     private final MappingTable mappingTable;
+
 
     public DefaultDigitConvertor(final MappingTable mappingTable) {
         this.mappingTable = mappingTable;
@@ -41,7 +44,9 @@ public class DefaultDigitConvertor implements DigitConvertor {
                 }
             }
         }
-        return null;
+        throw new IllegalArgumentException(
+                format("Number parameter must be between '1' and '9'! Current value is '%s'!", digit)
+        );
     }
 
 
